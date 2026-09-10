@@ -1,0 +1,2184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YojanaMatch — National Welfare &amp; Scheme Discovery Portal</title>
+    <style>
+      :root {
+        --gov-saffron: #ea580c;
+        --gov-saffron-dark: #c2410c;
+        --gov-saffron-light: #fff7ed;
+        --gov-saffron-border: #fed7aa;
+        --gov-green: #16a34a;
+        --gov-green-dark: #15803d;
+        --gov-green-light: #f0fdf4;
+        --gov-green-border: #bbf7d0;
+        --gov-navy: #0f172a;
+        --gov-slate: #334155;
+        --gov-muted: #64748b;
+        --gov-bg: #f8fafc;
+        --gov-card-bg: #ffffff;
+        --gov-border: #e2e8f0;
+        --gov-border-strong: #cbd5e1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--gov-slate);
+        background: var(--gov-bg);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* National Portal Top Bar */
+      .top-tricolor-bar {
+        height: 4px;
+        background: linear-gradient(90deg, #f97316 0%, #f97316 33.3%, #ffffff 33.3%, #ffffff 66.6%, #16a34a 66.6%, #16a34a 100%);
+        width: 100%;
+      }
+
+      .gov-header {
+        background: #ffffff;
+        border-bottom: 1px solid var(--gov-border);
+        padding: 16px 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+
+      .gov-header-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .gov-branding {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .gov-emblem {
+        width: 44px;
+        height: 44px;
+        background: var(--gov-saffron-light);
+        border: 1px solid var(--gov-saffron-border);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: var(--gov-saffron-dark);
+        font-weight: 700;
+      }
+
+      .gov-title-block h1 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--gov-navy);
+        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .gov-title-block .hindi-title {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--gov-saffron-dark);
+      }
+
+      .gov-subtitle {
+        margin: 2px 0 0 0;
+        font-size: 12.5px;
+        color: var(--gov-muted);
+      }
+
+      .gov-badge-official {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--gov-green-light);
+        border: 1px solid var(--gov-green-border);
+        color: var(--gov-green-dark);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto 48px auto;
+        padding: 0 16px;
+      }
+
+      .card-box {
+        background: var(--gov-card-bg);
+        border: 1px solid var(--gov-border);
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+        margin-bottom: 20px;
+      }
+
+      /* Tabs */
+      .tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--gov-border);
+        padding-bottom: 8px;
+        overflow-x: auto;
+      }
+
+      .tab-btn {
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid transparent;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--gov-muted);
+        transition: all 0.15s ease;
+        border-radius: 6px 6px 0 0;
+        white-space: nowrap;
+      }
+
+      .tab-btn:hover {
+        color: var(--gov-navy);
+        background: var(--gov-saffron-light);
+      }
+
+      .tab-btn.active {
+        color: var(--gov-saffron-dark);
+        border-bottom-color: var(--gov-saffron);
+        background: var(--gov-saffron-light);
+      }
+
+      /* Form Controls */
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+
+      .form-group.full-width {
+        grid-column: 1 / -1;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        font-size: 13.5px;
+        color: var(--gov-navy);
+      }
+
+      select,
+      input[type="number"],
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 9px 12px;
+        border: 1px solid var(--gov-border-strong);
+        border-radius: 6px;
+        font-size: 14px;
+        background: #ffffff;
+        color: var(--gov-navy);
+        transition: border-color 0.15s, box-shadow 0.15s;
+        font-family: inherit;
+      }
+
+      select:focus,
+      input[type="number"]:focus,
+      input[type="text"]:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--gov-saffron);
+        box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+      }
+
+      .income-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .income-row select {
+        flex: 1;
+        min-width: 130px;
+      }
+
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--gov-slate);
+        padding: 4px 0;
+      }
+
+      .checkbox-label input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: var(--gov-saffron);
+        cursor: pointer;
+      }
+
+      .doc-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        background: var(--gov-bg);
+        padding: 12px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--gov-border);
+      }
+
+      .doc-check {
+        font-size: 13px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+      }
+
+      .advanced-toggle {
+        color: var(--gov-saffron-dark);
+        cursor: pointer;
+        font-size: 13.5px;
+        font-weight: 600;
+        margin: 6px 0 16px 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .advanced-toggle:hover {
+        text-decoration: underline;
+      }
+
+      #advanced-fields {
+        display: none;
+        border-top: 1px dashed var(--gov-border-strong);
+        padding-top: 16px;
+        margin-top: 6px;
+        background: #fafafa;
+        padding: 14px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+      }
+
+      #advanced-fields.open {
+        display: block;
+      }
+
+      /* Buttons */
+      button[type="submit"],
+      .btn-primary {
+        background: var(--gov-saffron);
+        color: white;
+        border: none;
+        padding: 11px 22px;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s, transform 0.05s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      button[type="submit"]:hover,
+      .btn-primary:hover {
+        background: var(--gov-saffron-dark);
+      }
+
+      button[type="submit"]:active,
+      .btn-primary:active {
+        transform: scale(0.99);
+      }
+
+      .btn-secondary {
+        background: #ffffff;
+        color: var(--gov-slate);
+        border: 1px solid var(--gov-border-strong);
+        padding: 7px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        transition: all 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .btn-secondary:hover {
+        background: var(--gov-bg);
+        border-color: var(--gov-muted);
+        color: var(--gov-navy);
+      }
+
+      .btn-whatsapp {
+        background: #25d366;
+        color: white;
+        border: 1px solid #22bf5b;
+        padding: 7px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.15s;
+      }
+
+      .btn-whatsapp:hover {
+        background: #1eb956;
+      }
+
+      .btn-bookmark {
+        background: #ffffff;
+        border: 1px solid var(--gov-border-strong);
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--gov-slate);
+        transition: all 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .btn-bookmark:hover {
+        border-color: var(--gov-saffron);
+        color: var(--gov-saffron-dark);
+      }
+
+      .btn-bookmark.saved {
+        background: var(--gov-saffron-light);
+        border-color: var(--gov-saffron-border);
+        color: var(--gov-saffron-dark);
+      }
+
+      .btn-emi {
+        background: var(--gov-green-light);
+        color: var(--gov-green-dark);
+        border: 1px solid var(--gov-green-border);
+        padding: 7px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.15s;
+      }
+
+      .btn-emi:hover {
+        background: #dcfce7;
+      }
+
+      /* Badges */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 9px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-right: 6px;
+        margin-bottom: 6px;
+      }
+
+      .badge-tier1 {
+        background: var(--gov-saffron-light);
+        color: var(--gov-saffron-dark);
+        border: 1px solid var(--gov-saffron-border);
+      }
+
+      .badge-tier2 {
+        background: #eff6ff;
+        color: #1e40af;
+        border: 1px solid #bfdbfe;
+      }
+
+      .badge-tier3 {
+        background: var(--gov-bg);
+        color: var(--gov-slate);
+        border: 1px solid var(--gov-border);
+      }
+
+      .badge-score {
+        background: var(--gov-green-light);
+        color: var(--gov-green-dark);
+        border: 1px solid var(--gov-green-border);
+      }
+
+      .badge-disability {
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #fecaca;
+      }
+
+      .badge-dept {
+        background: #f1f5f9;
+        color: #475569;
+        border: 1px solid #e2e8f0;
+      }
+
+      /* Scheme Result Card */
+      .scheme-card {
+        border: 1px solid var(--gov-border);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 18px;
+        background: var(--gov-card-bg);
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        transition: box-shadow 0.2s, border-color 0.2s;
+        position: relative;
+      }
+
+      .scheme-card:hover {
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+        border-color: #cbd5e1;
+      }
+
+      .scheme-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .scheme-title-area {
+        flex: 1;
+      }
+
+      .scheme-rank {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--gov-saffron-dark);
+        margin-right: 6px;
+      }
+
+      .scheme-title {
+        margin: 0 0 4px 0;
+        font-size: 17.5px;
+        font-weight: 700;
+        color: var(--gov-navy);
+        line-height: 1.35;
+      }
+
+      .scheme-dept {
+        font-size: 12.5px;
+        color: var(--gov-muted);
+        margin-bottom: 8px;
+      }
+
+      .scheme-short-desc {
+        color: var(--gov-slate);
+        font-size: 14px;
+        margin: 0 0 12px 0;
+        line-height: 1.55;
+      }
+
+      /* Why this matches you Box */
+      .why-matches-box {
+        background: var(--gov-green-light);
+        border: 1px solid var(--gov-green-border);
+        border-radius: 8px;
+        padding: 10px 14px;
+        margin: 12px 0;
+      }
+
+      .why-matches-header {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--gov-green-dark);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .why-matches-list {
+        margin: 0;
+        padding: 0 0 0 16px;
+        font-size: 13px;
+        color: #14532d;
+      }
+
+      .why-matches-list li {
+        margin-bottom: 3px;
+      }
+
+      /* Structured Card Sections */
+      .scheme-section {
+        margin: 12px 0;
+      }
+
+      .scheme-section-title {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--gov-navy);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .structured-bullets {
+        margin: 4px 0 0 18px;
+        padding: 0;
+        font-size: 13.5px;
+        color: var(--gov-slate);
+        line-height: 1.5;
+      }
+
+      .structured-bullets li {
+        margin-bottom: 5px;
+      }
+
+      .structured-steps {
+        margin: 6px 0 0 20px;
+        padding: 0;
+        font-size: 13.5px;
+        color: var(--gov-slate);
+      }
+
+      .structured-steps li {
+        margin-bottom: 6px;
+        padding-left: 2px;
+      }
+
+      /* Eligibility Grid */
+      .eligibility-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 8px;
+        background: #f8fafc;
+        border: 1px solid var(--gov-border);
+        border-radius: 8px;
+        padding: 10px 12px;
+        margin: 8px 0;
+      }
+
+      .elig-item {
+        font-size: 13px;
+      }
+
+      .elig-label {
+        font-weight: 600;
+        color: var(--gov-muted);
+        display: block;
+        font-size: 11.5px;
+        text-transform: uppercase;
+      }
+
+      .elig-value {
+        color: var(--gov-navy);
+        font-weight: 500;
+      }
+
+      /* Card Actions */
+      .scheme-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+        align-items: center;
+      }
+
+      .scheme-details-pane {
+        display: none;
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px dashed var(--gov-border-strong);
+        font-size: 14px;
+      }
+
+      /* Financial / EMI Calculator */
+      .emi-box {
+        display: none;
+        margin-top: 14px;
+        padding: 16px;
+        background: var(--gov-green-light);
+        border: 1px solid var(--gov-green-border);
+        border-radius: 8px;
+      }
+
+      .emi-box.open {
+        display: block;
+      }
+
+      .emi-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .emi-field {
+        flex: 1;
+        min-width: 140px;
+      }
+
+      .emi-field label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #14532d;
+        margin-bottom: 4px;
+      }
+
+      .emi-field input,
+      .emi-field select {
+        width: 100%;
+        padding: 7px 10px;
+        border: 1px solid var(--gov-green-border);
+        border-radius: 6px;
+        font-size: 13.5px;
+        background: #ffffff;
+      }
+
+      .emi-field .fixed-gender {
+        padding: 7px 10px;
+        font-size: 13px;
+        color: #166534;
+        background: #dcfce7;
+        border-radius: 6px;
+        font-weight: 500;
+      }
+
+      .emi-result {
+        border-top: 1px dashed var(--gov-green-border);
+        padding-top: 10px;
+        margin-top: 6px;
+        font-size: 13.5px;
+      }
+
+      .emi-result .emi-amount {
+        font-size: 20px;
+        font-weight: 700;
+        color: #065f46;
+        margin: 4px 0;
+      }
+
+      .emi-note {
+        font-size: 12px;
+        color: #4b7c62;
+        margin-top: 6px;
+      }
+
+      /* Pathway Card */
+      .pathway-card {
+        border: 2px solid var(--gov-saffron);
+        border-radius: 12px;
+        padding: 20px;
+        background: #ffffff;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08);
+      }
+
+      .pathway-card h3 {
+        color: var(--gov-saffron-dark);
+        margin: 0 0 12px 0;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .pathway-goal {
+        background: var(--gov-saffron-light);
+        border-left: 3px solid var(--gov-saffron);
+        padding: 9px 14px;
+        border-radius: 4px;
+        font-size: 14px;
+        margin: 0 0 14px 0;
+      }
+
+      .pathway-block {
+        margin: 14px 0;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .pathway-block > b {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--gov-navy);
+      }
+
+      .checklist {
+        margin: 8px 0;
+      }
+
+      .check-row {
+        padding: 4px 0;
+        font-size: 13.5px;
+      }
+
+      .check-row.pass {
+        color: #166534;
+      }
+
+      .check-row.fail {
+        color: #991b1b;
+      }
+
+      .check-row.info {
+        color: #64748b;
+      }
+
+      .doc-chip {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        margin: 2px 6px 2px 0;
+      }
+
+      .doc-chip.doc-ready {
+        background: #dcfce7;
+        color: #166534;
+        border: 1px solid #bbf7d0;
+      }
+
+      .doc-chip.doc-missing {
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #fecaca;
+      }
+
+      .near-miss-card {
+        border: 1px solid #fecaca;
+        background: #fef2f2;
+        border-radius: 8px;
+        padding: 12px 14px;
+        margin-bottom: 10px;
+      }
+
+      .btn-pdf {
+        background: var(--gov-navy);
+        color: white;
+        border: none;
+        padding: 9px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13.5px;
+        font-weight: 600;
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.15s;
+      }
+
+      .btn-pdf:hover {
+        background: #1e293b;
+      }
+
+      .btn-pdf:disabled {
+        background: #94a3b8;
+        cursor: wait;
+      }
+
+      /* Empty & Load More */
+      .empty-state {
+        padding: 32px 20px;
+        border: 1px solid var(--gov-border);
+        border-radius: 10px;
+        background: #ffffff;
+        color: var(--gov-slate);
+        text-align: center;
+        font-size: 15.5px;
+        font-weight: 500;
+      }
+
+      .empty-state .tip {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--gov-muted);
+        margin-top: 8px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #loadMoreBtn {
+        display: none;
+        margin: 16px auto;
+        padding: 10px 24px;
+        background: #ffffff;
+        border: 1px solid var(--gov-saffron-border);
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--gov-saffron-dark);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        transition: all 0.15s;
+      }
+
+      #loadMoreBtn:hover {
+        background: var(--gov-saffron-light);
+        border-color: var(--gov-saffron);
+      }
+
+      .results-meta-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .results-meta-bar h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--gov-navy);
+      }
+
+      /* Official Portal Links */
+      .official-portal-link {
+        color: var(--gov-saffron-dark);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        word-break: break-all;
+      }
+
+      .official-portal-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 640px) {
+        .gov-header {
+          padding: 12px 16px;
+        }
+        .card-box {
+          padding: 16px;
+        }
+        .scheme-card {
+          padding: 16px;
+        }
+        .scheme-card-header {
+          flex-direction: column;
+        }
+        .btn-bookmark {
+          align-self: flex-start;
+        }
+        .results-meta-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-tricolor-bar"></div>
+
+    <header class="gov-header">
+      <div class="gov-header-inner">
+        <div class="gov-branding">
+          <div class="gov-emblem" title="Government Welfare Portal">🏛️</div>
+          <div class="gov-title-block">
+            <h1>YojanaMatch <span class="hindi-title">(योजना मैच)</span></h1>
+            <p class="gov-subtitle">National Welfare &amp; Government Benefit Discovery Platform</p>
+          </div>
+        </div>
+        <div class="gov-badge-official">
+          <span>🇮🇳 Verified Central &amp; State Schemes</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="card-box">
+        <div id="authBox" style="margin-bottom: 14px"></div>
+
+        <div class="tabs">
+          <button class="tab-btn active" id="tabFind" type="button">
+            🔍 Find Schemes
+          </button>
+          <button class="tab-btn" id="tabSaved" type="button">
+            ⭐ My Saved (<span id="savedCount">0</span>)
+          </button>
+          <button class="tab-btn" id="tabCredit" type="button">
+            🏦 Credit &amp; Loans (Locator)
+          </button>
+        </div>
+
+        <form id="form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="transgender">Transgender</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="age">Age (in years)</label>
+              <input type="number" id="age" value="25" min="0" max="120" />
+            </div>
+
+            <div class="form-group">
+              <label for="category">Social Category (Caste)</label>
+              <select id="category">
+                <option value="SC">SC (Scheduled Caste)</option>
+                <option value="ST">ST (Scheduled Tribe)</option>
+                <option value="OBC">OBC (Other Backward Class)</option>
+                <option value="General">General</option>
+                <option value="EWS">EWS (Economically Weaker Section)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="occupation">Occupation / Livelihood</label>
+              <select id="occupation">
+                <option value="">Not specified / All occupations</option>
+                <option value="student">Student</option>
+                <option value="farmer">Farmer / Agriculture</option>
+                <option value="entrepreneur">Entrepreneur / Small Business</option>
+                <option value="artisan">Artisan / Weaver / Craftsperson</option>
+                <option value="sanitation_worker">Safai Karamchari / Sanitation Worker</option>
+                <option value="unemployed">Unemployed / Job Seeker</option>
+                <option value="driver">Driver / Commercial Transport</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="state">State / Domicile</label>
+              <select id="state">
+                <option value="All India">All India (Central Schemes)</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="West Bengal">West Bengal</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="income-main">Annual Family Income</label>
+              <div class="income-row">
+                <select id="income-main"></select>
+                <select id="income-sub"></select>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="checkbox-label">
+                <input type="checkbox" id="disability" />
+                <span>Person with Benchmark Disability (PwD) — Prioritize disability welfare schemes</span>
+              </label>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="goalText">🎯 Specific Goal / Purpose (Optional)</label>
+              <textarea
+                id="goalText"
+                rows="2"
+                placeholder="e.g. Planning to expand my tailoring shop, college education, dairy farming"
+              ></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="requestedAmount">💰 Loan / Financial Amount Required (Optional)</label>
+              <input
+                type="number"
+                id="requestedAmount"
+                min="0"
+                step="1000"
+                placeholder="e.g. 500000"
+              />
+            </div>
+
+            <div class="form-group full-width">
+              <label>📄 Documents you already possess (Optional):</label>
+              <div id="docOptions" class="doc-options">
+                Loading document list...
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span class="advanced-toggle" id="advancedToggle">
+              + More Demographic Filters (Vulnerability, Minority, Rural/Urban)
+            </span>
+          </div>
+
+          <div id="advanced-fields">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="vulnerability">Marital / Vulnerability Status</label>
+                <select id="vulnerability">
+                  <option value="">Not specified</option>
+                  <option value="widow">Widow</option>
+                  <option value="divorced">Divorced / Deserted</option>
+                  <option value="single mother">Single Mother</option>
+                  <option value="orphan">Orphan</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="area">Area of Residence</label>
+                <select id="area">
+                  <option value="">Not specified</option>
+                  <option value="rural">Rural</option>
+                  <option value="urban">Urban</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="minority" />
+                  <span>Belong to a notified Religious Minority Community (Muslim / Christian / Sikh / Buddhist / Jain / Parsi)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit">
+            🔍 Find Eligible Schemes
+          </button>
+        </form>
+      </div>
+
+      <div id="pathwaySection" style="display: none"></div>
+      <div id="resultsMeta"></div>
+      <div id="results">
+        <div class="empty-state">
+          <div>Fill in your profile details above and click <b>"Find Eligible Schemes"</b> to discover matching government benefits.</div>
+          <div class="tip">Your eligibility is evaluated across 3,400+ Central and State welfare programs.</div>
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <button id="loadMoreBtn" type="button">⬇️ Load 20 More Schemes</button>
+      </div>
+      <div id="savedView" style="display: none"></div>
+    </div>
+
+    <script src="https://accounts.google.com/gsi/client"></script>
+    <script>
+      // ===================== Parsing Helpers =====================
+      function parseBenefits(text) {
+        if (!text || !String(text).trim()) return ["Not specified"];
+        let t = String(text).replace(/﻿/g, " ").replace(/​/g, " ").trim();
+
+        // 1. Explicit line breaks or bullet characters
+        if (/[\r\n•\*]+/.test(t)) {
+          const parts = t.split(/[\r\n•\*]+/);
+          const cleaned = parts.map((p) => p.replace(/^[\s\-–—:;.]+/, "").trim());
+          const res = cleaned.filter((c) => c.length > 3);
+          if (res.length >= 2) return res;
+        }
+
+        // 2. Numbered list items e.g. 1) 2) or 1. 2. or (a) (b)
+        if (/(?:^|\s)(?:\d+[\)\.]|\([a-z0-9]+\))\s+/.test(t)) {
+          const parts = t.split(/(?:^|\s)(?:\d+[\)\.]|\([a-z0-9]+\))\s+/);
+          const cleaned = parts.map((p) => p.replace(/^[\s\-–—:;.]+/, "").trim());
+          const res = cleaned.filter((c) => c.length > 3);
+          if (res.length >= 2) return res;
+        }
+
+        // 3. Structured Label Headers e.g. 'Out-Patient Care: ... Cashless Services: ...'
+        const headers = [...t.matchAll(/(?:^|(?<=[.!?;\n]\s))([A-Z][A-Za-z0-9\s/&,–-]{2,30}):\s+/g)];
+        if (headers.length >= 2) {
+          const parts = [];
+          for (let i = 0; i < headers.length; i++) {
+            const start = headers[i].index;
+            const end = i + 1 < headers.length ? headers[i + 1].index : t.length;
+            parts.push(t.substring(start, end).trim());
+          }
+          const res = parts
+            .map((p) => p.replace(/^[\s\-–—:;.]+/, "").trim())
+            .filter((p) => p.length > 3);
+          if (res.length >= 2) return res;
+        }
+
+        // 4. Multiple semicolons
+        if (t.split(";").length >= 3) {
+          const parts = t.split(";");
+          const res = parts
+            .map((p) => p.replace(/^[\s\-–—:;.]+/, "").trim())
+            .filter((c) => c.length > 3);
+          if (res.length >= 2) return res;
+        }
+
+        // 5. Sentence-level split protecting standard abbreviations
+        let temp = t.replace(/\b(Rs|p\.a|p\.m|e\.g|i\.e|etc|No|viz|Dr)\.\s+/gi, "$1_DOT_ ");
+        const sentences = temp.split(/(?<=[a-z0-9\)])\.\s+(?=[A-Z0-9₹])/);
+        const res = sentences
+          .map((s) => s.replace(/_DOT_/g, ".").replace(/^[\s\-–—:;.]+/, "").trim())
+          .filter((c) => c.length > 3);
+        if (res.length >= 1) return res;
+
+        return [t];
+      }
+
+      function parseSteps(text) {
+        if (!text || !String(text).trim()) return [];
+        let t = String(text).replace(/﻿/g, " ").replace(/​/g, " ").trim();
+
+        // 1. Explicit step markers like Step 1:, Step 01:, 1.
+        const stepPattern = /(?:^|\s+)(?:Step\s*\d+[\s:\-–—\.]+|Phase\s*\d+[\s:\-–—\.]+|\d+[\.\)]\s+)/i;
+        if (stepPattern.test(t)) {
+          const parts = t.split(/(?:^|\s+)(?:Step\s*\d+[\s:\-–—\.]+|Phase\s*\d+[\s:\-–—\.]+|\d+[\.\)]\s+)/i);
+          const cleaned = parts.map((p) => p.replace(/^[\s\-–—:;.]+/, "").trim());
+          const res = cleaned.filter(
+            (c) =>
+              c.length > 4 &&
+              !/^(?:Online Application|DBT Registration|Process|User Manual|Note\s*\d*)$/i.test(c),
+          );
+          if (res.length >= 2) return res;
+        }
+
+        // 2. Line breaks / bullets / semicolons
+        if (/[\r\n•\*]+/.test(t)) {
+          const parts = t.split(/[\r\n•\*]+/);
+          const cleaned = parts.map((p) => p.replace(/^[\s\-–—:;.]+/, "").trim());
+          const res = cleaned.filter((c) => c.length > 4);
+          if (res.length >= 2) return res;
+        }
+
+        // 3. Sentence-level split
+        let temp = t.replace(/\b(Rs|p\.a|p\.m|e\.g|i\.e|etc|No|viz|Dr)\.\s+/gi, "$1_DOT_ ");
+        const sentences = temp.split(/(?<=[a-z0-9\)])\.\s+(?=[A-Z0-9])/);
+        const cleaned = sentences
+          .map((s) => s.replace(/_DOT_/g, ".").replace(/^[\s\-–—:;.]+/, "").trim())
+          .filter((c) => c.length > 4);
+        if (cleaned.length >= 1) return cleaned;
+
+        return [t];
+      }
+
+      function parseDocuments(docs) {
+        if (!docs) return [];
+        const arr = Array.isArray(docs) ? docs : [docs];
+        const items = [];
+        arr.forEach((d) => {
+          if (!d) return;
+          let str = String(d).replace(/﻿/g, " ").replace(/​/g, " ").trim();
+          if (!str) return;
+
+          // Split if multiple documents are joined by newline, semicolon, or sentence boundary
+          let sub = str.split(/[\r\n•\*]+|;\s*|(?<=[a-z0-9\)])\.\s+(?=[A-Z0-9])/);
+          sub.forEach((s) => {
+            let item = s.replace(/^[\s\-–—:;.]+/, "").replace(/\.$/, "").trim();
+            if (
+              item.length > 2 &&
+              !["none", "n/a", "na", "not specified", "nil", "null"].includes(item.toLowerCase())
+            ) {
+              items.push(item);
+            }
+          });
+        });
+        return items;
+      }
+
+      function getWhyMatches(s, u) {
+        const bullets = [];
+        const traits = s.matched_demographics || [];
+
+        if (s.is_disability_match) {
+          bullets.push("♿ Priority match: Specifically earmarked for Persons with Benchmark Disabilities (PwD)");
+        }
+
+        const catTrait = traits.find((t) => t.startsWith("category:"));
+        if (catTrait) {
+          const catName = catTrait.replace("category:", "");
+          bullets.push(`Demographic Category: Matches ${catName} community eligibility`);
+        } else if (s.demographic_tier === 2) {
+          bullets.push("Demographic Tier: General category scheme open to your demographic group");
+        } else if (s.demographic_tier === 3) {
+          bullets.push("Universal Scheme: Open to all eligible Indian citizens");
+        }
+
+        const occTrait = traits.find((t) => t.startsWith("occupation:"));
+        if (occTrait) {
+          const occName = occTrait.replace("occupation:", "").replace(/_/g, " ");
+          bullets.push(`Occupation / Livelihood: Specifically tailored for ${occName}s`);
+        }
+
+        const vulnTrait = traits.find((t) => t.startsWith("vulnerability:"));
+        if (vulnTrait) {
+          const vulnName = vulnTrait.replace("vulnerability:", "").replace(/_/g, " ");
+          bullets.push(`Special Category: Targeted welfare for ${vulnName}`);
+        }
+
+        if (traits.includes("minority")) {
+          bullets.push("Community: Designated assistance for religious minority communities");
+        }
+
+        const areaTrait = traits.find((t) => t.startsWith("area:"));
+        if (areaTrait) {
+          const areaName = areaTrait.replace("area:", "");
+          bullets.push(`Area Coverage: Targeted for ${areaName} residents`);
+        }
+
+        if (u && u.annual_income != null) {
+          bullets.push(`Income Criteria: Family income qualifies within eligible benchmark limits`);
+        }
+
+        if (s.level === "Central" || s.state === "All India") {
+          bullets.push("Jurisdiction: Central Government scheme with nationwide coverage");
+        } else if (s.state) {
+          bullets.push(`Jurisdiction: State welfare program for ${s.state}`);
+        }
+
+        return bullets;
+      }
+
+      // ===================== Nested income dropdown =====================
+      const LAKH = 100000;
+      const MAIN_BRACKETS = [];
+      for (let i = 0; i < 10; i++) {
+        MAIN_BRACKETS.push({
+          min: i * LAKH,
+          max: (i + 1) * LAKH,
+          label: i === 0 ? "Below 1 Lakh" : `${i} to ${i + 1} Lakhs`,
+        });
+      }
+      MAIN_BRACKETS.push({
+        min: 10 * LAKH,
+        max: null,
+        label: "Above 10 Lakhs",
+      });
+
+      function fmtLakh(rs) {
+        return (
+          (rs / LAKH).toFixed(1).replace(/\.0$/, "") +
+          " Lakh" +
+          (rs === LAKH ? "" : "s")
+        );
+      }
+
+      const incomeMain = document.getElementById("income-main");
+      const incomeSub = document.getElementById("income-sub");
+
+      MAIN_BRACKETS.forEach((b, i) => {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.textContent = b.label;
+        incomeMain.appendChild(opt);
+      });
+      incomeMain.value = 1; // default to "1 to 2 Lakhs"
+
+      function refreshIncomeSub() {
+        const bracket = MAIN_BRACKETS[incomeMain.value];
+        incomeSub.innerHTML = "";
+        if (bracket.max === null) {
+          incomeSub.style.display = "none";
+          return;
+        }
+        incomeSub.style.display = "inline-block";
+        const step = 0.2 * LAKH;
+        for (let v = bracket.min; v < bracket.max; v += step) {
+          const hi = Math.min(v + step, bracket.max);
+          const opt = document.createElement("option");
+          opt.value = hi;
+          opt.textContent = `${fmtLakh(v)} to ${fmtLakh(hi)}`;
+          incomeSub.appendChild(opt);
+        }
+      }
+      incomeMain.addEventListener("change", refreshIncomeSub);
+      refreshIncomeSub();
+
+      function getSelectedIncome() {
+        const bracket = MAIN_BRACKETS[incomeMain.value];
+        if (bracket.max === null) return 1200000;
+        return Number(incomeSub.value);
+      }
+
+      // ===================== Advanced filters toggle =====================
+      const advancedToggle = document.getElementById("advancedToggle");
+      const advancedFields = document.getElementById("advanced-fields");
+      advancedToggle.addEventListener("click", () => {
+        const isOpen = advancedFields.classList.toggle("open");
+        advancedToggle.textContent = isOpen
+          ? "− Fewer Demographic Filters"
+          : "+ More Demographic Filters (Vulnerability, Minority, Rural/Urban)";
+      });
+
+      // ===================== Auth + Saved schemes =====================
+      const GOOGLE_CLIENT_ID =
+        "424199971136-mnbbtagff9cp7fjnhmk1gv1fvckr8d2n.apps.googleusercontent.com";
+
+      const SAVE_KEY = "yojanamatch_saved_schemes";
+      let currentGoogleUser = null;
+      let savedCache = {};
+
+      function getGuestSaved() {
+        try {
+          return JSON.parse(sessionStorage.getItem(SAVE_KEY) || "{}");
+        } catch (e) {
+          return {};
+        }
+      }
+      function setGuestSaved(obj) {
+        sessionStorage.setItem(SAVE_KEY, JSON.stringify(obj));
+      }
+
+      function updateSavedCount() {
+        document.getElementById("savedCount").textContent =
+          Object.keys(savedCache).length;
+      }
+      function isSchemeSaved(schemeName) {
+        return !!savedCache[schemeName];
+      }
+
+      async function loadSavedFromServer() {
+        try {
+          const res = await fetch("/saved", { credentials: "same-origin" });
+          const list = res.ok ? await res.json() : [];
+          savedCache = {};
+          (list || []).forEach((s) => {
+            savedCache[s.scheme_name] = s;
+          });
+        } catch (e) {
+          savedCache = {};
+        }
+      }
+
+      async function toggleSave(scheme) {
+        const key = scheme.scheme_name;
+        const wasSaved = !!savedCache[key];
+
+        if (wasSaved) delete savedCache[key];
+        else savedCache[key] = scheme;
+        updateSavedCount();
+
+        if (!currentGoogleUser) {
+          setGuestSaved(savedCache);
+          return;
+        }
+
+        try {
+          if (wasSaved) {
+            await fetch(`/saved/${encodeURIComponent(key)}`, {
+              method: "DELETE",
+              credentials: "same-origin",
+            });
+          } else {
+            await fetch("/saved", {
+              method: "POST",
+              credentials: "same-origin",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ scheme }),
+            });
+          }
+        } catch (e) {
+          if (wasSaved) savedCache[key] = scheme;
+          else delete savedCache[key];
+          updateSavedCount();
+          alert("Could not update your saved schemes - check your connection and try again.");
+        }
+      }
+
+      function renderGoogleButton() {
+        if (!window.google || !GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID.startsWith("YOUR_")) return;
+        google.accounts.id.initialize({
+          client_id: GOOGLE_CLIENT_ID,
+          callback: handleGoogleCredential,
+        });
+        const target = document.getElementById("g_id_signin");
+        if (target) {
+          google.accounts.id.renderButton(target, {
+            theme: "outline",
+            size: "medium",
+            text: "signin_with",
+          });
+        }
+      }
+
+      async function handleGoogleCredential(response) {
+        const guestSavedBeforeLogin = Object.values(getGuestSaved());
+        const res = await fetch("/auth/google", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ credential: response.credential }),
+        });
+        if (!res.ok) {
+          alert("Google sign-in failed. Please try again.");
+          return;
+        }
+
+        if (guestSavedBeforeLogin.length) {
+          await fetch("/saved", {
+            method: "POST",
+            credentials: "same-origin",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ schemes: guestSavedBeforeLogin }),
+          });
+          sessionStorage.removeItem(SAVE_KEY);
+        }
+
+        await refreshAuthUI();
+        if (savedView.style.display !== "none") renderSavedView();
+      }
+
+      async function handleLogout() {
+        await fetch("/auth/logout", {
+          method: "POST",
+          credentials: "same-origin",
+        });
+        await refreshAuthUI();
+        if (savedView.style.display !== "none") renderSavedView();
+      }
+
+      async function refreshAuthUI() {
+        let user = null;
+        try {
+          const res = await fetch("/auth/me", { credentials: "same-origin" });
+          user = res.ok ? await res.json() : null;
+        } catch (e) {
+          user = null;
+        }
+        currentGoogleUser = user || null;
+
+        const authBox = document.getElementById("authBox");
+        if (currentGoogleUser) {
+          await loadSavedFromServer();
+          authBox.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#f0fdf4; border:1px solid #bbf7d0; padding:8px 12px; border-radius:6px;">
+            <span style="font-size:13px; color:#166534;">👤 Signed in as <b>${currentGoogleUser.name}</b> (${currentGoogleUser.email})</span>
+            <button class="btn-secondary" id="logoutBtn" type="button" style="padding:4px 10px; font-size:12px;">Sign out</button>
+          </div>
+        `;
+          document.getElementById("logoutBtn").addEventListener("click", handleLogout);
+        } else {
+          savedCache = getGuestSaved();
+          authBox.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; background:#f8fafc; border:1px solid #e2e8f0; padding:8px 12px; border-radius:6px;">
+            <div style="font-size:12.5px; color:#64748b;">
+              💡 <b>Tip:</b> Sign in to permanently sync your saved schemes across devices.
+            </div>
+            <div id="g_id_signin"></div>
+          </div>`;
+          renderGoogleButton();
+        }
+        updateSavedCount();
+      }
+
+      // ===================== WhatsApp Sharing =====================
+      function whatsappUrlForScheme(s) {
+        const text = `📋 *${s.scheme_name}*\n${s.short_description ? s.short_description.slice(0, 140) + "..." : ""}\n\n🏛️ Found on YojanaMatch - Discover government schemes you are eligible for!`;
+        return `https://wa.me/?text=${encodeURIComponent(text)}`;
+      }
+      function shareAllResultsUrl(totalCount) {
+        const text = `🎉 I found ${totalCount} government welfare schemes I'm eligible for using YojanaMatch! Check your eligibility too:`;
+        return `https://wa.me/?text=${encodeURIComponent(text)}`;
+      }
+
+      // ===================== Badges =====================
+      function badgesFor(s) {
+        let html = "";
+        if (s.is_disability_match) {
+          html += `<span class="badge badge-disability">♿ Disability Priority</span>`;
+        }
+        if (s.demographic_tier === 1) {
+          const matchedStr = (s.matched_demographics || [])
+            .filter((t) => t !== "disability")
+            .map((t) => t.replace("category:", "").replace("occupation:", ""))
+            .join(", ");
+          html += `<span class="badge badge-tier1">🥇 Tier 1: Specific Match${matchedStr ? " (" + matchedStr + ")" : ""}</span>`;
+        } else if (s.demographic_tier === 2) {
+          html += `<span class="badge badge-tier2">Tier 2: Broader Category</span>`;
+        } else {
+          html += `<span class="badge badge-tier3">Tier 3: Universal / Open</span>`;
+        }
+        html += `<span class="badge badge-score">Match Score: ${s.match_score || 0} pts</span>`;
+        if (s.level === "Central" || s.state === "All India") {
+          html += `<span class="badge badge-dept">Central Scheme</span>`;
+        } else if (s.state) {
+          html += `<span class="badge badge-dept">${s.state}</span>`;
+        }
+        return html;
+      }
+
+      // ===================== Scheme Card Redesign =====================
+      function renderSchemeCard(s, index) {
+        const urls = s.official_urls || [];
+        const linksHtml = urls.length
+          ? urls
+              .map(
+                (u) =>
+                  `<a class="official-portal-link" href="${u}" target="_blank" rel="noopener noreferrer">🌐 Visit Official Portal (${u.replace(/^https?:\/\//, '').split('/')[0]}) ↗</a>`,
+              )
+              .join("<br>")
+          : "<i>Official link not specified</i>";
+
+        const benefitsList = parseBenefits(s.benefits_summary);
+        const benefitsHtml =
+          benefitsList.length > 0
+            ? '<ul class="structured-bullets">' +
+              benefitsList.map((b) => `<li>${b}</li>`).join("") +
+              "</ul>"
+            : "<i>Not specified</i>";
+
+        const stepsList = parseSteps(s.application_process_summary);
+        const stepsHtml =
+          stepsList.length > 0
+            ? '<ol class="structured-steps">' +
+              stepsList.map((step) => `<li>${step}</li>`).join("") +
+              "</ol>"
+            : "<p style='color:#64748b; font-size:13px; margin:4px 0;'>Application steps not specified — please refer to the official portal.</p>";
+
+        const docsList = parseDocuments(s.documents_required);
+        const docsHtml =
+          docsList.length > 0
+            ? '<ul class="structured-bullets">' +
+              docsList.map((d) => `<li>${d}</li>`).join("") +
+              "</ul>"
+            : "<p style='color:#64748b; font-size:13px; margin:4px 0;'>No specific documents specified.</p>";
+
+        const whyMatchesList = getWhyMatches(s, currentUser);
+        const whyMatchesHtml =
+          whyMatchesList.length > 0
+            ? `
+          <div class="why-matches-box">
+            <div class="why-matches-header">🎯 Why this matches you:</div>
+            <ul class="why-matches-list">
+              ${whyMatchesList.map((item) => `<li>${item}</li>`).join("")}
+            </ul>
+          </div>`
+            : "";
+
+        const isSaved = isSchemeSaved(s.scheme_name);
+        const safeJson = encodeURIComponent(JSON.stringify(s));
+
+        return `
+        <div class="scheme-card" id="scheme-card-${index}">
+          <div class="scheme-card-header">
+            <div class="scheme-title-area">
+              <div style="margin-bottom: 6px;">${badgesFor(s)}</div>
+              <h3 class="scheme-title">
+                <span class="scheme-rank">#${index + 1}</span>
+                ${s.scheme_name || "Unnamed Scheme"}
+              </h3>
+              ${s.department && s.department !== "Not Specified" ? `<div class="scheme-dept">🏛️ ${s.department}</div>` : ""}
+            </div>
+            <button class="btn-bookmark ${isSaved ? "saved" : ""}" data-scheme="${safeJson}" onclick="handleBookmarkClick(this)">
+              ${isSaved ? "★ Saved" : "☆ Save"}
+            </button>
+          </div>
+
+          <p class="scheme-short-desc">${s.short_description || "Welfare scheme details and assistance criteria."}</p>
+
+          ${whyMatchesHtml}
+
+          <div class="scheme-section">
+            <div class="scheme-section-title">💰 Key Benefits:</div>
+            ${benefitsHtml}
+          </div>
+
+          <div class="scheme-actions">
+            <button class="btn-secondary" id="toggle-btn-${index}" onclick="
+              const el = document.getElementById('detail-${index}');
+              const btn = document.getElementById('toggle-btn-${index}');
+              const isHidden = (el.style.display === 'none' || !el.style.display);
+              el.style.display = isHidden ? 'block' : 'none';
+              btn.innerHTML = isHidden ? '▴ Hide Details' : '▾ View Full Details &amp; Steps';
+            ">▾ View Full Details &amp; Steps</button>
+
+            <a class="btn-whatsapp" href="${whatsappUrlForScheme(s)}" target="_blank" rel="noopener noreferrer">
+              <span>Share on WhatsApp</span>
+            </a>
+
+            ${
+              s.loan_terms
+                ? `<button class="btn-emi" onclick="
+              const el = document.getElementById('emi-${index}');
+              const nowOpen = el.classList.toggle('open');
+              if (nowOpen) updateEmi(${index});
+            ">💰 Calculate EMI</button>`
+                : ""
+            }
+          </div>
+
+          <div id="detail-${index}" class="scheme-details-pane">
+            <div class="scheme-section">
+              <div class="scheme-section-title">📋 Eligibility Overview:</div>
+              <div class="eligibility-grid">
+                <div class="elig-item">
+                  <span class="elig-label">Category / Caste</span>
+                  <span class="elig-value">${s.demographic_tier === 1 ? (s.matched_demographics || []).filter(t => t.startsWith('category:')).map(t => t.replace('category:', '')).join(', ') || 'Demographic Match' : (s.demographic_tier === 2 ? 'General / Open' : 'All Categories')}</span>
+                </div>
+                <div class="elig-item">
+                  <span class="elig-label">Target Group</span>
+                  <span class="elig-value">${s.scheme_category && s.scheme_category !== 'Not Specified' ? s.scheme_category : 'All Eligible Citizens'}</span>
+                </div>
+                <div class="elig-item">
+                  <span class="elig-label">Coverage / Level</span>
+                  <span class="elig-value">${s.level || 'Central'} (${s.state || 'All India'})</span>
+                </div>
+                <div class="elig-item">
+                  <span class="elig-label">Verification Status</span>
+                  <span class="elig-value" style="color: ${s.verification_status === 'verified' ? '#166534' : '#b45309'};">${s.verification_status === 'verified' ? '✓ Verified Official' : 'Direct Portal Data'}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="scheme-section">
+              <div class="scheme-section-title">📝 How to Apply (Step-by-Step):</div>
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:12px 16px; border-radius:8px;">
+                ${stepsHtml}
+              </div>
+            </div>
+
+            <div class="scheme-section">
+              <div class="scheme-section-title">📄 Documents Required:</div>
+              ${docsHtml}
+            </div>
+
+            ${
+              s.qualification_hints && s.qualification_hints.length
+                ? `<div style="font-size:12.5px; color:#64748b; margin: 8px 0;">
+                     <b>Qualification mentions:</b> ${s.qualification_hints.join(", ").replace(/_/g, " ")} (confirm on official portal)
+                   </div>`
+                : ""
+            }
+
+            <div class="scheme-section" style="margin-top:14px;">
+              <div class="scheme-section-title">🔗 Official Portal Link:</div>
+              <div>${linksHtml}</div>
+            </div>
+          </div>
+
+          ${s.loan_terms ? renderEmiCalculator(s, index) : ""}
+        </div>
+      `;
+      }
+
+      // ===================== Financial Calculator (EMI) =====================
+      function renderEmiCalculator(s, index) {
+        const lt = s.loan_terms;
+        const rebate = lt.gender_rebate;
+        const lockedGender = lt.gender_locked;
+        const searchGender = (currentUser && currentUser.gender) || "male";
+
+        let genderFieldHtml = "";
+        let defaultGenderForCalc = null;
+        if (lockedGender) {
+          defaultGenderForCalc = lockedGender;
+          genderFieldHtml = `
+          <div class="emi-field">
+            <label>Gender Category</label>
+            <div class="fixed-gender">${lockedGender.charAt(0).toUpperCase() + lockedGender.slice(1)} (Scheme is for ${lockedGender} applicants)</div>
+          </div>`;
+        } else if (rebate) {
+          const otherGender = rebate.gender === "female" ? "male" : "female";
+          defaultGenderForCalc =
+            searchGender === rebate.gender || searchGender === otherGender
+              ? searchGender
+              : otherGender;
+          genderFieldHtml = `
+          <div class="emi-field">
+            <label>Applicant Gender</label>
+            <select id="emi-gender-${index}" onchange="updateEmi(${index})">
+              <option value="${rebate.gender}" ${defaultGenderForCalc === rebate.gender ? "selected" : ""}>${rebate.gender.charAt(0).toUpperCase() + rebate.gender.slice(1)}</option>
+              <option value="${otherGender}" ${defaultGenderForCalc === otherGender ? "selected" : ""}>${otherGender.charAt(0).toUpperCase() + otherGender.slice(1)}</option>
+            </select>
+          </div>`;
+        }
+
+        const defaultAmount = lt.max_loan_amount || 100000;
+        const defaultYears = lt.repayment_years || 5;
+
+        return `
+        <div id="emi-${index}" class="emi-box" data-locked-gender="${lockedGender || ""}" data-base-rate="${lt.base_interest_rate_percent}"
+             data-rebate-gender="${rebate ? rebate.gender : ""}" data-rebate-percent="${rebate ? rebate.rebate_percent : 0}"
+             data-moratorium="${lt.moratorium_months == null ? "" : lt.moratorium_months}">
+          <div style="font-weight:700; color:#14532d; font-size:14px; margin-bottom:10px;">📊 Concessional Credit &amp; EMI Estimator</div>
+          <div class="emi-row">
+            ${genderFieldHtml}
+            <div class="emi-field">
+              <label>Loan Amount (₹)</label>
+              <input type="number" id="emi-amount-${index}" value="${defaultAmount}" min="1000"
+                     ${lt.max_loan_amount ? `max="${lt.max_loan_amount}"` : ""} step="1000" oninput="updateEmi(${index})">
+            </div>
+            <div class="emi-field">
+              <label>Tenure (Years)</label>
+              <input type="number" id="emi-years-${index}" value="${defaultYears}" min="1"
+                     ${lt.repayment_years ? `max="${lt.repayment_years}"` : `max="30"`} step="1" oninput="updateEmi(${index})">
+            </div>
+          </div>
+          <div class="emi-result" id="emi-result-${index}"></div>
+          ${lt.rate_note ? `<div class="emi-note">📌 Note: ${lt.rate_note}</div>` : ""}
+          ${lt.max_loan_amount ? `<div class="emi-note">📌 Loan amount is capped at the scheme's statutory limit of ₹${lt.max_loan_amount.toLocaleString("en-IN")}.</div>` : ""}
+        </div>
+      `;
+      }
+
+      function computeEmi(principal, annualRatePercent, years) {
+        const n = Math.max(1, Math.round(years * 12));
+        const r = annualRatePercent / 100 / 12;
+        let emi;
+        if (r === 0) {
+          emi = principal / n;
+        } else {
+          emi = (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+        }
+        const totalPayment = emi * n;
+        const totalInterest = totalPayment - principal;
+        return { emi, totalPayment, totalInterest, months: n };
+      }
+
+      function updateEmi(index) {
+        const box = document.getElementById(`emi-${index}`);
+        if (!box) return;
+        const baseRate = parseFloat(box.dataset.baseRate);
+        const rebateGender = box.dataset.rebateGender;
+        const rebatePercent = parseFloat(box.dataset.rebatePercent || "0");
+        const lockedGender = box.dataset.lockedGender;
+        const moratorium = box.dataset.moratorium;
+
+        const amountEl = document.getElementById(`emi-amount-${index}`);
+        const yearsEl = document.getElementById(`emi-years-${index}`);
+        const genderEl = document.getElementById(`emi-gender-${index}`);
+
+        let amount = parseFloat(amountEl.value) || 0;
+        const maxAttr = amountEl.getAttribute("max");
+        if (maxAttr && amount > parseFloat(maxAttr)) {
+          amount = parseFloat(maxAttr);
+          amountEl.value = amount;
+        }
+        let years = parseFloat(yearsEl.value) || 1;
+        const yearsMaxAttr = yearsEl.getAttribute("max");
+        if (yearsMaxAttr && years > parseFloat(yearsMaxAttr)) {
+          years = parseFloat(yearsMaxAttr);
+          yearsEl.value = years;
+        }
+
+        const effectiveGender = lockedGender || (genderEl ? genderEl.value : null);
+        let rate = baseRate;
+        if (rebateGender && effectiveGender === rebateGender) {
+          rate = baseRate - rebatePercent;
+        }
+
+        const { emi, totalPayment, totalInterest, months } = computeEmi(amount, rate, years);
+        const resultEl = document.getElementById(`emi-result-${index}`);
+        resultEl.innerHTML = `
+        <div>Interest Rate Applied: <b>${rate.toFixed(2)}% p.a.</b>${rebateGender && effectiveGender === rebateGender ? " (Includes concessional gender rebate)" : ""}</div>
+        <div class="emi-amount">₹${Math.round(emi).toLocaleString("en-IN")} <span style="font-size:14px; font-weight:500; color:#14532d;">/ month</span></div>
+        <div>Over ${months} months: Total repayment ≈ ₹${Math.round(totalPayment).toLocaleString("en-IN")}, of which interest component ≈ ₹${Math.round(totalInterest).toLocaleString("en-IN")}.</div>
+        ${moratorium ? `<div class="emi-note">A ${moratorium}-month moratorium typically applies before EMIs commence.</div>` : ""}
+      `;
+      }
+
+      async function handleBookmarkClick(btn) {
+        const scheme = JSON.parse(decodeURIComponent(btn.dataset.scheme));
+        await toggleSave(scheme);
+        const nowSaved = isSchemeSaved(scheme.scheme_name);
+        btn.classList.toggle("saved", nowSaved);
+        btn.textContent = nowSaved ? "★ Saved" : "☆ Save";
+      }
+
+      // ===================== Document Checklist =====================
+      async function loadDocOptions() {
+        const container = document.getElementById("docOptions");
+        try {
+          const res = await fetch("/document-checklist-options");
+          const opts = await res.json();
+          container.innerHTML = opts
+            .map(
+              (o) => `
+          <label class="doc-check"><input type="checkbox" value="${o.key}"> ${o.label}</label>
+        `,
+            )
+            .join("");
+        } catch (e) {
+          container.innerHTML = "<i>Could not load document checklist.</i>";
+        }
+      }
+      loadDocOptions();
+      refreshAuthUI();
+
+      function getCheckedDocKeys() {
+        return Array.from(
+          document.querySelectorAll("#docOptions input[type=checkbox]:checked"),
+        ).map((cb) => cb.value);
+      }
+
+      // ===================== Pathway Hero Card =====================
+      function buildPathwayRequestBody() {
+        const goalText = document.getElementById("goalText").value.trim();
+        const amountRaw = document.getElementById("requestedAmount").value;
+        const requestedAmount = amountRaw ? parseInt(amountRaw, 10) : undefined;
+        return {
+          user: currentUser,
+          goal_text: goalText || undefined,
+          user_owned_documents: getCheckedDocKeys(),
+          requested_amount: requestedAmount,
+        };
+      }
+
+      async function fetchPathway() {
+        const section = document.getElementById("pathwaySection");
+        section.style.display = "block";
+        section.innerHTML =
+          '<div class="pathway-card"><p style="color:#64748b; margin:0;">Evaluating optimal benefit pathway...</p></div>';
+        try {
+          const res = await fetch("/pathway", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(buildPathwayRequestBody()),
+          });
+          const data = await res.json();
+          renderPathway(data);
+        } catch (err) {
+          section.innerHTML =
+            '<div class="pathway-card"><p>Could not build benefit pathway right now.</p></div>';
+        }
+      }
+
+      function renderPathway(data) {
+        const section = document.getElementById("pathwaySection");
+        const goal = data.goal || {};
+        let html = '<div class="pathway-card">';
+        html += '<h3 style="margin-top:0;">🎯 Personalized Benefit Pathway</h3>';
+
+        if (goal.raw_text) {
+          const parsed = goal.parsed || {};
+          html += `<div class="pathway-goal">Goal Identified: <b>${goal.raw_text}</b>`;
+          if (parsed.purpose_label) html += ` — <i>${parsed.purpose_label}</i>`;
+          if (parsed.target_amount)
+            html += ` — Target: ₹${Number(parsed.target_amount).toLocaleString("en-IN")}`;
+          html += "</div>";
+        }
+
+        if (data.has_eligible_match && data.best_match) {
+          const b = data.best_match;
+          html += `<h4 style="margin-bottom:4px; font-size:16px; color:#0f172a;">${b.scheme_name}</h4>`;
+          html += `<p style="color:#475569; margin:0 0 10px 0; font-size:13.5px;">${b.eligibility_summary}</p>`;
+
+          if (b.eligibility_checklist && b.eligibility_checklist.length) {
+            html +=
+              '<div class="checklist">' +
+              b.eligibility_checklist
+                .map((row) => {
+                  const icon =
+                    row.status === "pass"
+                      ? "✅"
+                      : row.status === "fail"
+                        ? "❌"
+                        : "ℹ️";
+                  return `<div class="check-row ${row.status}">${icon} <b>${row.label}:</b> ${row.detail}</div>`;
+                })
+                .join("") +
+              "</div>";
+          }
+
+          const fin = b.financial_breakdown || {};
+          html += '<div class="pathway-block"><b>💰 Estimated Financial Support:</b>';
+          if (fin.available) {
+            html += `Sanctionable Amount: ₹${Number(fin.principal).toLocaleString("en-IN")} at ${fin.applicable_rate_percent}% p.a. for ${fin.tenure_years} years<br>`;
+            html += `<span class="emi-amount" style="font-size:18px; font-weight:700; color:#15803d;">₹${Math.round(fin.monthly_emi).toLocaleString("en-IN")} / month EMI</span> · Total interest ≈ ₹${Math.round(fin.total_interest).toLocaleString("en-IN")}`;
+            if (fin.gender_rebate_applied)
+              html +=
+                '<br><span style="color:#166534; font-size:13px;">✓ Concessional gender-based interest rebate applied.</span>';
+            if (fin.rate_note)
+              html += `<div class="emi-note">${fin.rate_note}</div>`;
+          } else {
+            html += `<i>${fin.reason || "Financial terms not applicable or direct grant scheme."}</i>`;
+          }
+          html += "</div>";
+
+          const docs = b.document_readiness || {};
+          const readyList = docs.ready || [];
+          const missingList = docs.missing || [];
+          html += `<div class="pathway-block"><b>📄 Document Readiness: ${docs.ready_count || 0}/${docs.total_required || 0} Ready</b><br>`;
+          if (readyList.length || missingList.length) {
+            html += readyList
+              .map((d) => `<span class="doc-chip doc-ready">✅ ${d.label}</span>`)
+              .join("");
+            html += missingList
+              .map((d) => `<span class="doc-chip doc-missing">❌ ${d.label}</span>`)
+              .join("");
+          } else {
+            html += "<i>No specific document checklist required.</i>";
+          }
+          html += "</div>";
+
+          const stepsInfo = b.application_steps || {};
+          const steps = stepsInfo.steps || [];
+          if (steps.length) {
+            html +=
+              '<div class="pathway-block"><b>📝 Next Application Steps:</b><ol class="structured-steps">';
+            html += steps.map((s) => `<li>${s}</li>`).join("");
+            html += "</ol>";
+            if (stepsInfo.source === "generic_fallback") {
+              html +=
+                '<div class="emi-note">Standard public procedure shown — verify specific portal process.</div>';
+            }
+            html += "</div>";
+          }
+
+          if (b.official_urls && b.official_urls.length) {
+            html += `<div class="pathway-block"><b>🔗 Official Portal:</b><br>${b.official_urls.map((u) => `<a class="official-portal-link" href="${u}" target="_blank" rel="noopener noreferrer">${u} ↗</a>`).join("<br>")}</div>`;
+          }
+
+          html += `<button class="btn-pdf" type="button" id="pdfDownloadBtn">📄 Download Pathway Summary as Official PDF</button>`;
+
+          if (data.other_options && data.other_options.length) {
+            html +=
+              '<div class="pathway-block" style="margin-top:14px;"><b>Other Eligible Options for You:</b><ul class="structured-bullets">';
+            html += data.other_options
+              .map((o) => `<li><b>${o.scheme_name}</b> (Match Score: ${o.match_score} pts)</li>`)
+              .join("");
+            html += "</ul></div>";
+          }
+        } else {
+          html += `<p>${data.alternative_note || "No specific single pathway scheme match at the moment."}</p>`;
+          (data.near_misses || []).forEach((nm) => {
+            html += `<div class="near-miss-card"><b>${nm.scheme_name}</b>`;
+            html += (nm.blocking_requirements || [])
+              .map((g) => `<div class="check-row fail">❌ ${g.message}</div>`)
+              .join("");
+            if (nm.fixable_alone)
+              html += `<div style="color:#166534; font-size:13px; margin-top:4px;">Adjusting this criteria would qualify you for this scheme.</div>`;
+            html += "</div>";
+          });
+          if (data.fallback_alternatives && data.fallback_alternatives.length) {
+            html +=
+              '<div class="pathway-block"><b>✅ Accessible Universal Schemes You Can Apply For:</b><ul class="structured-bullets">';
+            html += data.fallback_alternatives
+              .map((a) => `<li><b>${a.scheme_name}</b> (Score: ${a.match_score} pts)</li>`)
+              .join("");
+            html += "</ul></div>";
+          }
+        }
+
+        html += "</div>";
+        section.innerHTML = html;
+
+        const pdfBtn = document.getElementById("pdfDownloadBtn");
+        if (pdfBtn) pdfBtn.addEventListener("click", downloadPathwayPdf);
+      }
+
+      async function downloadPathwayPdf() {
+        const btn = document.getElementById("pdfDownloadBtn");
+        if (btn) {
+          btn.disabled = true;
+          btn.textContent = "Generating official PDF...";
+        }
+        try {
+          const res = await fetch("/pathway/pdf", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(buildPathwayRequestBody()),
+          });
+          if (!res.ok) throw new Error("PDF generation failed");
+          const blob = await res.blob();
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "my_benefit_pathway.pdf";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        } catch (err) {
+          alert("Could not generate PDF summary. Please try again.");
+        } finally {
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = "📄 Download Pathway Summary as Official PDF";
+          }
+        }
+      }
+
+      // ===================== Search & Pagination =====================
+      const resultsDiv = document.getElementById("results");
+      const resultsMeta = document.getElementById("resultsMeta");
+      const loadMoreBtn = document.getElementById("loadMoreBtn");
+      let currentUser = null;
+      let currentGoalText = "";
+      let renderedCount = 0;
+
+      function buildUserPayload() {
+        return {
+          gender: document.getElementById("gender").value,
+          age: parseInt(document.getElementById("age").value, 10),
+          category: document.getElementById("category").value,
+          state: document.getElementById("state").value,
+          annual_income: getSelectedIncome(),
+          disability: document.getElementById("disability").checked,
+          occupation: document.getElementById("occupation").value || undefined,
+          marital_status: document.getElementById("vulnerability").value || undefined,
+          is_minority: document.getElementById("minority").checked || undefined,
+          area: document.getElementById("area").value || undefined,
+        };
+      }
+
+      async function fetchPage(offset, limit) {
+        const res = await fetch("/match", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...currentUser,
+            offset,
+            limit,
+            goal_text: currentGoalText || undefined,
+          }),
+        });
+        return res.json();
+      }
+
+      function renderEmptyState(message) {
+        resultsDiv.innerHTML = `
+        <div class="empty-state">
+          ${message || "No matching schemes found for the specified demographic criteria."}
+          <div class="tip">Tip: Try adjusting your income selection or demographic filters. Some schemes are categorized by specific occupation, minority status, or domicile.</div>
+        </div>`;
+        loadMoreBtn.style.display = "none";
+        resultsMeta.innerHTML = "";
+      }
+
+      document.getElementById("form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        currentUser = buildUserPayload();
+        currentGoalText = document.getElementById("goalText").value.trim();
+        renderedCount = 0;
+        resultsDiv.innerHTML =
+          '<div style="text-align:center; padding:32px; color:#64748b;">⏳ Evaluating eligible schemes...</div>';
+        resultsMeta.innerHTML = "";
+
+        fetchPathway();
+
+        try {
+          const data = await fetchPage(0, 20);
+
+          if (!data.results || data.results.length === 0) {
+            renderEmptyState(data.message);
+            return;
+          }
+
+          resultsMeta.innerHTML = `
+          <div class="results-meta-bar">
+            <h3>🏛️ ${data.total_matches} Eligible Schemes Found (Best Match First)</h3>
+            <a class="btn-whatsapp" href="${shareAllResultsUrl(data.total_matches)}" target="_blank" rel="noopener noreferrer">
+              Share Results Summary on WhatsApp
+            </a>
+          </div>
+        `;
+
+          resultsDiv.innerHTML = "";
+          data.results.forEach((s) => {
+            resultsDiv.insertAdjacentHTML("beforeend", renderSchemeCard(s, renderedCount));
+            renderedCount++;
+          });
+
+          loadMoreBtn.dataset.offset = data.offset + data.limit;
+          loadMoreBtn.style.display = data.has_more ? "inline-block" : "none";
+        } catch (err) {
+          renderEmptyState("Something went wrong while finding schemes. Please try again.");
+        }
+      });
+
+      loadMoreBtn.addEventListener("click", async () => {
+        const offset = parseInt(loadMoreBtn.dataset.offset || "0", 10);
+        const data = await fetchPage(offset, 20);
+        (data.results || []).forEach((s) => {
+          resultsDiv.insertAdjacentHTML("beforeend", renderSchemeCard(s, renderedCount));
+          renderedCount++;
+        });
+        loadMoreBtn.dataset.offset = data.offset + data.limit;
+        loadMoreBtn.style.display = data.has_more ? "inline-block" : "none";
+      });
+
+      // ===================== Tabs =====================
+      const tabFind = document.getElementById("tabFind");
+      const tabSaved = document.getElementById("tabSaved");
+      const formEl = document.getElementById("form");
+      const savedView = document.getElementById("savedView");
+
+      function renderSavedView() {
+        const saved = Object.values(savedCache);
+        if (saved.length === 0) {
+          savedView.innerHTML =
+            '<div class="empty-state">No saved schemes yet. Click <b>☆ Save</b> on any scheme to access it here anytime.</div>';
+          return;
+        }
+        savedView.innerHTML =
+          `<div class="results-meta-bar"><h3>⭐ Your Saved Schemes (${saved.length})</h3></div>` +
+          saved.map((s, i) => renderSchemeCard(s, i)).join("");
+      }
+
+      tabFind.addEventListener("click", () => {
+        tabFind.classList.add("active");
+        tabSaved.classList.remove("active");
+        formEl.style.display = "block";
+        resultsMeta.style.display = "block";
+        resultsDiv.style.display = "block";
+        savedView.style.display = "none";
+      });
+
+      tabSaved.addEventListener("click", () => {
+        tabSaved.classList.add("active");
+        tabFind.classList.remove("active");
+        formEl.style.display = "none";
+        resultsMeta.style.display = "none";
+        resultsDiv.style.display = "none";
+        loadMoreBtn.style.display = "none";
+        savedView.style.display = "block";
+        renderSavedView();
+      });
+
+      document.getElementById("tabCredit").addEventListener("click", () => {
+        window.location.href = "/locator";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Channel Partner Locator — NSFDC Concessional Credit Portal</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+  :root {
+    --gov-saffron: #ea580c;
+    --gov-saffron-dark: #c2410c;
+    --gov-saffron-light: #fff7ed;
+    --gov-saffron-border: #fed7aa;
+    --gov-green: #16a34a;
+    --gov-green-dark: #15803d;
+    --gov-green-light: #f0fdf4;
+    --gov-green-border: #bbf7d0;
+    --gov-navy: #0f172a;
+    --gov-slate: #334155;
+    --gov-muted: #64748b;
+    --gov-bg: #f8fafc;
+    --gov-card-bg: #ffffff;
+    --gov-border: #e2e8f0;
+    --gov-border-strong: #cbd5e1;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background: var(--gov-bg);
+    color: var(--gov-slate);
+    line-height: 1.5;
+  }
+
+  /* National Portal Top Bar */
+  .top-tricolor-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #f97316 0%, #f97316 33.3%, #ffffff 33.3%, #ffffff 66.6%, #16a34a 66.6%, #16a34a 100%);
+    width: 100%;
+  }
+
+  header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--gov-border);
+    padding: 14px 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .header-branding {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-emblem {
+    width: 40px;
+    height: 40px;
+    background: var(--gov-saffron-light);
+    border: 1px solid var(--gov-saffron-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--gov-saffron-dark);
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gov-navy);
+  }
+
+  header p {
+    margin: 2px 0 0;
+    font-size: 12.5px;
+    color: var(--gov-muted);
+  }
+
+  .back-link {
+    color: var(--gov-saffron-dark);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .layout {
+    display: flex;
+    height: calc(100vh - 72px);
+  }
+
+  .sidebar {
+    width: 380px;
+    padding: 18px;
+    overflow-y: auto;
+    background: #ffffff;
+    border-right: 1px solid var(--gov-border);
+    box-shadow: 1px 0 3px rgba(0,0,0,0.02);
+  }
+
+  #map { flex: 1; }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gov-navy);
+    margin-bottom: 6px;
+  }
+
+  select {
+    width: 100%;
+    padding: 9px 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--gov-border-strong);
+    font-size: 13.5px;
+    color: var(--gov-navy);
+    background: #ffffff;
+    font-family: inherit;
+  }
+
+  select:focus {
+    outline: none;
+    border-color: var(--gov-saffron);
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+  }
+
+  button {
+    width: 100%;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: none;
+    background: var(--gov-saffron);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  button:hover { background: var(--gov-saffron-dark); }
+  button:disabled { background: #94a3b8; cursor: not-allowed; }
+
+  .partner-card {
+    border: 1px solid var(--gov-border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    background: #ffffff;
+    transition: box-shadow 0.15s, border-color 0.15s;
+    cursor: pointer;
+  }
+
+  .partner-card:hover {
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+    border-color: #cbd5e1;
+  }
+
+  .partner-card h3 {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gov-navy);
+  }
+
+  .partner-meta {
+    font-size: 12px;
+    color: var(--gov-muted);
+    margin: 3px 0;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: var(--gov-green-light);
+    color: var(--gov-green-dark);
+    border: 1px solid var(--gov-green-border);
+    margin-right: 4px;
+  }
+
+  .dist {
+    float: right;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--gov-saffron-dark);
+  }
+
+  .status-msg {
+    font-size: 13px;
+    color: var(--gov-muted);
+    padding: 6px 0 10px 0;
+  }
+
+  .note {
+    font-size: 11.5px;
+    color: var(--gov-muted);
+    margin-top: 20px;
+    border-top: 1px solid var(--gov-border);
+    padding-top: 10px;
+    line-height: 1.4;
+  }
+
+  .directions-btn {
+    font-size: 12.5px;
+    color: var(--gov-saffron-dark);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+  }
+  .directions-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .layout { flex-direction: column; height: auto; }
+    .sidebar { width: 100%; max-height: 50vh; border-right: none; border-bottom: 1px solid var(--gov-border); }
+    #map { height: 50vh; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-tricolor-bar"></div>
+
+<header>
+  <div class="header-inner">
+    <div class="header-branding">
+      <div class="header-emblem">🏛️</div>
+      <div>
+        <h1>Channel Partner Locator</h1>
+        <p>NSFDC Concessional Credit &amp; Institutional Lending Network</p>
+      </div>
+    </div>
+    <a href="/" class="back-link">&larr; Back to Scheme Discovery</a>
+  </div>
+</header>
+
+<div class="layout">
+  <div class="sidebar">
+    <label for="loanCategory">Select Loan / Credit Scheme</label>
+    <select id="loanCategory">
+      <option value="">Loading loan schemes...</option>
+    </select>
+
+    <button id="locateBtn" type="button">📍 Locate Nearest Channel Partners</button>
+    <div id="statusMsg" class="status-msg"></div>
+
+    <div id="resultsList"></div>
+
+    <div class="note">
+      Eligibility status shown is <strong>simulated demo data</strong> — in production this reflects NSFDC's live institutional fund-utilization and NPA verification records.
+    </div>
+  </div>
+  <div id="map"></div>
+</div>
+
+<script>
+let map = L.map('map').setView([22.9734, 78.6569], 5); // India center
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+let markers = [];
+let userMarker = null;
+
+function clearMarkers() {
+  markers.forEach(m => map.removeLayer(m));
+  markers = [];
+}
+
+// Load loan schemes into the dropdown
+fetch('/loan-schemes')
+  .then(r => r.json())
+  .then(schemes => {
+    const sel = document.getElementById('loanCategory');
+    sel.innerHTML = schemes.map(s =>
+      `<option value="${s.loan_category}">${s.scheme_name} (up to ₹${s.max_loan_amount ? s.max_loan_amount.toLocaleString('en-IN') : 'N/A'})</option>`
+    ).join('');
+  })
+  .catch(() => {
+    document.getElementById('loanCategory').innerHTML = '<option value="">Could not load schemes</option>';
+  });
+
+document.getElementById('locateBtn').addEventListener('click', () => {
+  const statusEl = document.getElementById('statusMsg');
+  const btn = document.getElementById('locateBtn');
+
+  if (!navigator.geolocation) {
+    statusEl.textContent = 'Geolocation is not supported by this browser.';
+    return;
+  }
+
+  btn.disabled = true;
+  statusEl.textContent = 'Detecting current GPS coordinates...';
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      const lat = pos.coords.latitude;
+      const lng = pos.coords.longitude;
+      statusEl.textContent = 'Finding nearest eligible financial institutions...';
+      findPartners(lat, lng);
+      btn.disabled = false;
+    },
+    (err) => {
+      statusEl.textContent = 'Could not get location: ' + err.message;
+      btn.disabled = false;
+    }
+  );
+});
+
+function findPartners(lat, lng) {
+  const loanCategory = document.getElementById('loanCategory').value;
+
+  fetch('/nearest-partners', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ lat, lng, loan_category: loanCategory, limit: 10 })
+  })
+    .then(r => r.json())
+    .then(data => renderResults(lat, lng, data))
+    .catch(() => {
+      document.getElementById('statusMsg').textContent = 'Something went wrong fetching partners.';
+    });
+}
+
+function renderResults(userLat, userLng, data) {
+  clearMarkers();
+  document.getElementById('statusMsg').textContent =
+    `${data.total_eligible} eligible partner(s) found. Showing nearest ${data.results.length}.`;
+
+  // Place user marker
+  if (userMarker) map.removeLayer(userMarker);
+  userMarker = L.marker([userLat, userLng], {
+    icon: L.divIcon({ className: '', html: '📍', iconSize: [24, 24] })
+  }).addTo(map).bindPopup('<b>You are here</b>');
+  markers.push(userMarker);
+
+  const listEl = document.getElementById('resultsList');
+  listEl.innerHTML = '';
+
+  data.results.forEach(p => {
+    const marker = L.marker([p.latitude, p.longitude])
+      .addTo(map)
+      .bindPopup(`<strong>${p.name}</strong><br>${p.type}<br>${p.distance_km} km away`);
+    markers.push(marker);
+
+    const isApprox = p.location_precision === 'state_approximate';
+    const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${p.latitude},${p.longitude}`;
+
+    const card = document.createElement('div');
+    card.className = 'partner-card';
+    card.innerHTML = `
+      <span class="dist">${p.distance_km} km</span>
+      <h3>${p.name}</h3>
+      <div class="partner-meta">
+        <span class="badge">${p.type}</span>
+        ${isApprox ? '<span class="badge" style="background:#fff7ed; color:#c2410c; border-color:#fed7aa;" title="State-level approximate distance">~ approx. location</span>' : ''}
+      </div>
+      <div class="partner-meta">${p.address}</div>
+      <a href="${directionsUrl}" target="_blank" rel="noopener noreferrer" class="directions-btn">Get Directions &rarr;</a>
+    `;
+    card.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') return;
+      map.setView([p.latitude, p.longitude], 12);
+      marker.openPopup();
+    });
+    listEl.appendChild(card);
+  });
+
+  if (data.results.length > 0) {
+    map.setView([userLat, userLng], 8);
+  }
+}
+</script>
+
+</body>
+</html>

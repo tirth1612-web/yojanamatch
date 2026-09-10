@@ -1,0 +1,38 @@
+[
+  {
+    "scheme_id": "NSFDC-MICRO",
+    "scheme_name": "Micro Finance Scheme",
+    "loan_category": "micro_finance",
+    "max_loan_amount": 140000,
+    "interest_rate_range": "6.5% to 8%",
+    "income_ceiling_annual": 500000,
+    "moratorium_months": "3 to 6",
+    "cost_coverage_percent": 90,
+    "eligible_partner_types": ["SCA", "NBFC-MFI", "Cooperative Society", "RRB", "PSB", "Small Finance Bank", "Other Agency"],
+    "description": "For small-ticket income-generating projects up to Rs.1.40 lakh."
+  },
+  {
+    "scheme_id": "NSFDC-TERM",
+    "scheme_name": "Term Loan Scheme",
+    "loan_category": "term_loan",
+    "max_loan_amount": 5000000,
+    "interest_rate_range": "6.5% to 15%",
+    "income_ceiling_annual": 500000,
+    "moratorium_months": "6 to 12",
+    "cost_coverage_percent": 90,
+    "eligible_partner_types": ["SCA", "PSB", "RRB", "Small Finance Bank", "Other Agency"],
+    "description": "For larger income-generating projects up to Rs.50.00 lakh."
+  },
+  {
+    "scheme_id": "NSFDC-EDU",
+    "scheme_name": "Educational Loan Scheme",
+    "loan_category": "education_loan",
+    "max_loan_amount": null,
+    "interest_rate_range": "6.5% to 8%",
+    "income_ceiling_annual": 500000,
+    "moratorium_months": "Course duration + 6",
+    "cost_coverage_percent": 90,
+    "eligible_partner_types": ["SCA", "PSB", "RRB"],
+    "description": "For technical/professional education, in India or abroad."
+  }
+]

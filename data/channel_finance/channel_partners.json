@@ -1,0 +1,1670 @@
+[
+  {
+    "partner_id": "CP-001",
+    "name": "Andhra Pradesh Scheduled Castes Cooperative Finance Corporation Ltd",
+    "type": "SCA",
+    "state": "Andhra Pradesh",
+    "address": "SP River View Apartment, 3rd Floor, Tadepalli, Amaravati - 522501",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 16.4759479,
+    "longitude": 80.6083656,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-002",
+    "name": "Andhra Pradesh State Financial Corporation (APSFC)",
+    "type": "SCA",
+    "state": "Andhra Pradesh",
+    "address": "APSFC Bhavan, Plot OS No.2, 2nd Cross, 3rd Road, Industrial Park, Vijayawada - 520007",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 16.490423,
+    "longitude": 80.6782817,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-003",
+    "name": "Assam State Scheduled Castes Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Assam",
+    "address": "Swahid Dilip Hazarika Path, Sarumotoria, Guwahati - 781006",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.1464891,
+    "longitude": 91.7894222,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-004",
+    "name": "Bihar State Scheduled Castes Cooperative Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Bihar",
+    "address": "RN-212, Officers Colony (S-A), Bailey Road, Patna - 800001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 25.6090911,
+    "longitude": 85.151263,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-005",
+    "name": "Chandigarh SC & OBC Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Chandigarh",
+    "address": "3rd Floor, Additional Town Hall Building, Sector-17-D, Chandigarh - 160017",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 30.7366775,
+    "longitude": 76.587611,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-006",
+    "name": "Chhattisgarh State Antyavasayi Cooperative Finance & Development Corporation (CGSCFDC)",
+    "type": "SCA",
+    "state": "Chhattisgarh",
+    "address": "4th Floor, Chhattisgarh Housing Board Bhavan, Naya Raipur, Chhattisgarh - 492101",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 21.2178827,
+    "longitude": 81.7941635,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-007",
+    "name": "Delhi SC/ST/OBC/Minorities Finance & Development Corporation",
+    "type": "SCA",
+    "state": "Delhi",
+    "address": "Ambedkar Bhavan, Sector-16, Rohini, Delhi - 110085",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 28.7188504,
+    "longitude": 77.1162439,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-008",
+    "name": "Gujarat Scheduled Castes Development Corporation",
+    "type": "SCA",
+    "state": "Gujarat",
+    "address": "Dr. Jivraj Mehta Bhavan, Block-10, 2nd Floor, Old Sachivalaya, Gandhinagar - 382010",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 23.2254073,
+    "longitude": 72.6585044,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-009",
+    "name": "Dr. Ambedkar Antyodaya Vikas Nigam",
+    "type": "SCA",
+    "state": "Gujarat",
+    "address": "Karmayogi Bhavan, Block 2, D2 Wing, 4th Floor, Block-10, Gandhinagar",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.2232877,
+    "longitude": 72.6492267,
+    "location_precision": "locality"
+  },
+  {
+    "partner_id": "CP-010",
+    "name": "Goa State SC & OBC Finance and Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Goa",
+    "address": "4th Floor, Patto Centre, Near Kadamba Bus Stand, Panaji, Goa - 403001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 15.4962073,
+    "longitude": 73.8221406,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-011",
+    "name": "Haryana Scheduled Castes Finance & Development Corporation Ltd (HSFDC)",
+    "type": "SCA",
+    "state": "Haryana",
+    "address": "SCO-2427-28, Sector-22-C, Chandigarh - 160022",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 30.7190881,
+    "longitude": 76.7696008,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-012",
+    "name": "Himachal Pradesh SC-ST Development Corporation",
+    "type": "SCA",
+    "state": "Himachal Pradesh",
+    "address": "Kalyan Bhavan, Near Ambusha Resort, Solan - 173212",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 30.9187564,
+    "longitude": 77.0604982,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-013",
+    "name": "Jharkhand State Scheduled Castes Cooperative Development Corporation",
+    "type": "SCA",
+    "state": "Jharkhand",
+    "address": "Kalyan Complex, 3rd Floor, Baliyar Road, Ranchi - 834008",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 23.3975652,
+    "longitude": 85.3240635,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-014",
+    "name": "J&K SC, ST and OBC Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Jammu and Kashmir",
+    "address": "Exchange Road, Near Red Cross Office, Srinagar - 190001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 34.0818504,
+    "longitude": 74.8084578,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-015",
+    "name": "Dr. B.R. Ambedkar Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Karnataka",
+    "address": "9th & 10th Floor, Vishweshwaraiah Mini Tower, Dr Ambedkar Veedhi, Bengaluru - 560001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 12.9797037,
+    "longitude": 77.594695,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-016",
+    "name": "Kerala State SC & ST Development Corporation Ltd (KSDC)",
+    "type": "SCA",
+    "state": "Kerala",
+    "address": "Town Hall Road, Thrissur - 680020",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 10.345369,
+    "longitude": 76.2111482,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-017",
+    "name": "Kerala State Women's Development Corporation",
+    "type": "SCA",
+    "state": "Kerala",
+    "address": "1st Floor, Parvin Bhavan, East Fort, Attukulangara, Thiruvananthapuram - 695023",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 8.4831992,
+    "longitude": 76.943366,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-018",
+    "name": "MP State Cooperative Scheduled Castes Finance & Development Corporation",
+    "type": "SCA",
+    "state": "Madhya Pradesh",
+    "address": "Rajiv Gandhi Bhavan, 35, Shyamla Hills, Bhopal - 462011",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.2288389,
+    "longitude": 77.4349563,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-019",
+    "name": "Mahatma Phule Backward Class Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Maharashtra",
+    "address": "1-N, Supreme Shopping Centre, Gulmohar Cross Road No.9, JVPD Scheme, Juhu, Mumbai - 400049",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 19.1789649,
+    "longitude": 72.8154334,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-020",
+    "name": "Sahityaratna Lokshahir Annabhau Sathe Vikas Nigam Ltd",
+    "type": "SCA",
+    "state": "Maharashtra",
+    "address": "New Administrative Building-2, 3rd Floor, Ramkrishna Chemburkar Marg, Chembur (E), Mumbai - 400071",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 19.1005547,
+    "longitude": 72.904609,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-021",
+    "name": "Sant Rohidas Charmodyog and Charmakar Vikas Nigam",
+    "type": "SCA",
+    "state": "Maharashtra",
+    "address": "Bombay Life Building, 5th Floor, 45, Veer Nariman Road, Mumbai - 400001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 18.9916242,
+    "longitude": 72.853977,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-022",
+    "name": "Manipur Tribal Development Corp Ltd",
+    "type": "SCA",
+    "state": "Manipur",
+    "address": "Lamphelpat, Imphal - 795004",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 24.8253007,
+    "longitude": 93.9291572,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-023",
+    "name": "Manipur SC and ST Cooperative Development Bank",
+    "type": "SCA",
+    "state": "Manipur",
+    "address": "Nambul Lamba, Stadium Road, Imphal East, Manipur - 795001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 24.8055109,
+    "longitude": 93.936935,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-024",
+    "name": "Meghalaya Cooperative Apex Bank Ltd (MCAB)",
+    "type": "SCA",
+    "state": "Meghalaya",
+    "address": "MG Road, Kacheri, Shillong - 793001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 25.5795063,
+    "longitude": 91.888911,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-025",
+    "name": "Odisha SC & ST Development Finance Cooperative Corporation Ltd (OSFDC)",
+    "type": "SCA",
+    "state": "Odisha",
+    "address": "Lewis Road, Bhubaneswar - 751014",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 20.25486,
+    "longitude": 85.8408008,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-026",
+    "name": "Puducherry Adi Dravidar Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Puducherry",
+    "address": "3rd Floor, Adi Dravidar Welfare Department, Thattanchavady, Puducherry - 605009",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 12.0549381,
+    "longitude": 79.7823704,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-027",
+    "name": "Punjab Scheduled Castes Land Development & Finance Corporation",
+    "type": "SCA",
+    "state": "Punjab",
+    "address": "SCO-101-102-103, Sector 17-D, Chandigarh - 160017",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 30.7366775,
+    "longitude": 76.587611,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-028",
+    "name": "Rajasthan SC and ST Finance & Development Cooperative Corporation Ltd",
+    "type": "SCA",
+    "state": "Rajasthan",
+    "address": "3rd Floor, Central Block, Nehru Sahakar Bhavan, Bhawani Singh Marg, Jaipur - 302005",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 26.8850479,
+    "longitude": 75.7927939,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-029",
+    "name": "Tamil Nadu Adi Dravidar Housing and Development Corporation Ltd (TAHDCO)",
+    "type": "SCA",
+    "state": "Tamil Nadu",
+    "address": "31, Santhome Road, 2nd Lane, Teynampet, Chennai - 600018",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 13.0365267,
+    "longitude": 80.254508,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-030",
+    "name": "Tripura Scheduled Castes Cooperative Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Tripura",
+    "address": "Krishna Nagar PO, Lake Chowmuhani, Tripura - 799001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.8629663,
+    "longitude": 91.3577457,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-031",
+    "name": "UP Scheduled Castes Finance & Development Corporation Ltd",
+    "type": "SCA",
+    "state": "Uttar Pradesh",
+    "address": "B-912, Sector, Mahanagar, Lucknow - 226006",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.8809806,
+    "longitude": 80.9532705,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-032",
+    "name": "Uttarakhand Multipurpose Finance & Development Corporation",
+    "type": "SCA",
+    "state": "Uttarakhand",
+    "address": "Directorate of Tribal Affairs, Bhagat Singh Colony, Dehradun - 248001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 30.3313921,
+    "longitude": 78.0404249,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-033",
+    "name": "West Bengal SC/ST/OBC Development & Finance Corporation (WBSCSTOBCDFC)",
+    "type": "SCA",
+    "state": "West Bengal",
+    "address": "CF 217/A/1 Nabin Sarani, Sector-I, Salt Lake, Kolkata - 700064",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 22.5955985,
+    "longitude": 88.4103473,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-034",
+    "name": "Dadra & Nagar Haveli / Daman & Diu SC/ST/OBC and Minorities Finance and Development Corporation",
+    "type": "SCA",
+    "state": "Dadra and Nagar Haveli and Daman and Diu",
+    "address": "Near Electricity Department, 66 KVA Road, Silvassa - 396230",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 20.2460367,
+    "longitude": 73.0310398,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-035",
+    "name": "Sikkim SC-ST and Backward Classes Development Corporation (SSCSTBCDC)",
+    "type": "SCA",
+    "state": "Sikkim",
+    "address": "Bhanupath, Gangtok, Sikkim - 737101",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 27.3346812,
+    "longitude": 88.609072,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-036",
+    "name": "Mizoram Urban Cooperative Development Bank Ltd",
+    "type": "SCA",
+    "state": "Mizoram",
+    "address": "Lalsawmliana Building (Top Floor), Zarkawt, Aizawl - 796001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.7198598,
+    "longitude": 92.7211202,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-037",
+    "name": "Mizoram Khadi & Village Industries Board",
+    "type": "SCA",
+    "state": "Mizoram",
+    "address": "Zarkawt, Aizawl - 796007",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.7373016,
+    "longitude": 92.7157174,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-038",
+    "name": "UP Cooperative Gram Vikas Bank Ltd",
+    "type": "SCA",
+    "state": "Uttar Pradesh",
+    "address": "10, Mall Avenue, Lucknow, Uttar Pradesh - 226001",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.8621883,
+    "longitude": 80.9113521,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-039",
+    "name": "Dakshin Bihar Gramin Bank",
+    "type": "RRB",
+    "state": "Bihar",
+    "address": "Ashok Rajpath, Near BP Highways Petrol Pump, Patna - 800016",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 25.6063316,
+    "longitude": 85.1674694,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-040",
+    "name": "Uttar Bihar Gramin Bank",
+    "type": "RRB",
+    "state": "Bihar",
+    "address": "Kalambag Chowk, Muzaffarpur - 842001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.1247032,
+    "longitude": 85.3806281,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-041",
+    "name": "Jharkhand Rajya Gramin Bank",
+    "type": "RRB",
+    "state": "Jharkhand",
+    "address": "Near Nagar Palika Chowk, Dumka, Jharkhand",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 24.2677937,
+    "longitude": 87.2485495,
+    "location_precision": "locality"
+  },
+  {
+    "partner_id": "CP-042",
+    "name": "Maharashtra Gramin Bank",
+    "type": "RRB",
+    "state": "Maharashtra",
+    "address": "Plot No.35, Jeevan Shree Town Centre, CIDCO - 431003",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 19.8516791,
+    "longitude": 75.3935519,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-043",
+    "name": "Vidarbha Konkan Gramin Bank",
+    "type": "RRB",
+    "state": "Maharashtra",
+    "address": "Chandraprastha, Plot No 6, Ring Road, Nagpur - 440022",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 21.120832,
+    "longitude": 79.0530665,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-044",
+    "name": "Sarva Haryana Gramin Bank",
+    "type": "RRB",
+    "state": "Haryana",
+    "address": "Near Bajrang Bhavan, Delhi Road, Rohtak - 124001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 28.888731,
+    "longitude": 76.6077314,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-045",
+    "name": "Baroda Gujarat Gramin Bank",
+    "type": "RRB",
+    "state": "Gujarat",
+    "address": "Skyline Building, 2nd Floor, Near Sheetal Guest House, Bharuch - 392001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 21.7052984,
+    "longitude": 72.9907452,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-046",
+    "name": "Telangana Gramin Bank",
+    "type": "RRB",
+    "state": "Telangana",
+    "address": "House No 2-1-520, Nallakunta, Hyderabad - 500044",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 17.4018073,
+    "longitude": 78.5089113,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-047",
+    "name": "Rajasthan Marudhara Gramin Bank",
+    "type": "RRB",
+    "state": "Rajasthan",
+    "address": "Tulsi Tower, 9th, B Road, Sardarpura, Jodhpur - 342003",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 26.2950995,
+    "longitude": 73.019503,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-048",
+    "name": "Baroda UP Gramin Bank",
+    "type": "RRB",
+    "state": "Uttar Pradesh",
+    "address": "A-1, Civil Lines, Rae Bareli - 229001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.2820692,
+    "longitude": 81.1763203,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-049",
+    "name": "Kerala Gramin Bank",
+    "type": "RRB",
+    "state": "Kerala",
+    "address": "PB No.10, KGPB Towers, Aluva, Kerala - 683101",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 10.0963753,
+    "longitude": 76.3619703,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-050",
+    "name": "Uttarakhand Gramin Bank",
+    "type": "RRB",
+    "state": "Uttarakhand",
+    "address": "18-A, Uttarakhand",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 28.9740025,
+    "longitude": 79.3896502,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-051",
+    "name": "Prathama UP Gramin Bank",
+    "type": "RRB",
+    "state": "Uttar Pradesh",
+    "address": "Prathama Bhavan, Ram Ganga Vihar-II, Moradabad - 244001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 28.8486445,
+    "longitude": 78.7638716,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-052",
+    "name": "Karnataka Gramin Bank",
+    "type": "RRB",
+    "state": "Karnataka",
+    "address": "CA 20, Vijayanagar II Stage, Mysore - 570017",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 12.3322075,
+    "longitude": 76.6104452,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-053",
+    "name": "Tripura Gramin Bank",
+    "type": "RRB",
+    "state": "Tripura",
+    "address": "Airport Road, PO Abhoynagar, Agartala, Tripura (West) - 799005",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.9153329,
+    "longitude": 91.3879341,
+    "location_precision": "locality"
+  },
+  {
+    "partner_id": "CP-054",
+    "name": "Chaitanya Godavari Gramin Bank",
+    "type": "RRB",
+    "state": "Andhra Pradesh",
+    "address": "4th Floor, Raghumandan, 4-1, Brodipet, Guntur - 522002",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 16.306681,
+    "longitude": 80.4424218,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-055",
+    "name": "Karnataka Vikas Gramin Bank",
+    "type": "RRB",
+    "state": "Karnataka",
+    "address": "PB No. 111, Dharwad - 580008",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 15.4618223,
+    "longitude": 75.0012682,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-056",
+    "name": "Assam Gramin Vikas Bank",
+    "type": "RRB",
+    "state": "Assam",
+    "address": "GS Road, Bhangagarh, Guwahati - 781005",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.1603078,
+    "longitude": 91.7754097,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-057",
+    "name": "Tamil Nadu Grama Bank",
+    "type": "RRB",
+    "state": "Tamil Nadu",
+    "address": "6, Yercaud Road, Hasthampatti, Salem - 636007",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 11.6844739,
+    "longitude": 78.1613454,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-058",
+    "name": "Punjab Gramin Bank",
+    "type": "RRB",
+    "state": "Punjab",
+    "address": "Jalandhar Road, Kapurthala - 144601",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 31.3839324,
+    "longitude": 75.3819621,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-059",
+    "name": "Madhyanchal Gramin Bank",
+    "type": "RRB",
+    "state": "Madhya Pradesh",
+    "address": "Poddar Colony, Tili Road, Sagar - 470001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 23.8062572,
+    "longitude": 78.750175,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-060",
+    "name": "Aryavart Bank",
+    "type": "RRB",
+    "state": "Uttar Pradesh",
+    "address": "A-2/46, Vijay Khand, Gomti Nagar, Lucknow - 226010",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.850833,
+    "longitude": 81.0036102,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-061",
+    "name": "Andhra Pradesh Grameena Vikas Bank",
+    "type": "RRB",
+    "state": "Andhra Pradesh",
+    "address": "Door No.2-5-8/1, Ramnagar, Hanmakonda, Warangal - 506001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 18.0034235,
+    "longitude": 79.561234,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-062",
+    "name": "Saptagiri Grameena Bank",
+    "type": "RRB",
+    "state": "Andhra Pradesh",
+    "address": "PB17, Naidu Buildings, Chittoor - 517001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 13.2243957,
+    "longitude": 79.08822,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-063",
+    "name": "Himachal Pradesh Gramin Bank",
+    "type": "RRB",
+    "state": "Himachal Pradesh",
+    "address": "Jail Road, PO Talyahar, Mandi - 175001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 31.703642,
+    "longitude": 76.9364684,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-064",
+    "name": "Madhya Pradesh Gramin Bank",
+    "type": "RRB",
+    "state": "Madhya Pradesh",
+    "address": "43, Khajrana Road, Peepal Chowk, Ganeshpuri, Indore - 452016",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 22.7252458,
+    "longitude": 75.9232077,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-065",
+    "name": "Puduvai Bharathiar Grama Bank",
+    "type": "RRB",
+    "state": "Puducherry",
+    "address": "441, Mahatma Gandhi Road, Muthialpet, Puducherry - 605003",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 11.9496801,
+    "longitude": 79.8317937,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-066",
+    "name": "Andhra Pragathi Grameena Bank",
+    "type": "RRB",
+    "state": "Andhra Pradesh",
+    "address": "Mariyapuram, Kadapa - 516003",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 14.4727346,
+    "longitude": 78.8029635,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-067",
+    "name": "Saurashtra Gramin Bank",
+    "type": "RRB",
+    "state": "Gujarat",
+    "address": "LIC Jeevan Prakash Building, Tagore Marg, Rajkot - 360001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 22.2932676,
+    "longitude": 70.7928435,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-068",
+    "name": "Paschim Banga Gramin Bank",
+    "type": "RRB",
+    "state": "West Bengal",
+    "address": "Natabar Paul Road, Tikiyapara, Howrah - 711101",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 22.5972055,
+    "longitude": 88.3459574,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-069",
+    "name": "Baroda Rajasthan Kshetriya Gramin Bank",
+    "type": "RRB",
+    "state": "Rajasthan",
+    "address": "Plot Number-2343, Anna Sagar Circular Road, Ajmer - 305004",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.4860841,
+    "longitude": 74.6220214,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-070",
+    "name": "Manipur Rural Bank",
+    "type": "RRB",
+    "state": "Manipur",
+    "address": "Imphal - 795001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 24.7991162,
+    "longitude": 93.9364419,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-071",
+    "name": "Chhattisgarh Rajya Gramin Bank",
+    "type": "RRB",
+    "state": "Chhattisgarh",
+    "address": "Mahadevghat Road, Sundar Nagar, Raipur - 492013",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 21.2206803,
+    "longitude": 81.6070377,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-072",
+    "name": "Jammu & Kashmir Grameen Vikas Bank",
+    "type": "RRB",
+    "state": "Jammu and Kashmir",
+    "address": "Near J&K Wool Complex, Narwal - 180006",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 32.7169996,
+    "longitude": 74.8677287,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-073",
+    "name": "Ellaquai Dehati Bank",
+    "type": "RRB",
+    "state": "Jammu and Kashmir",
+    "address": "3rd Floor, Nirman Complex, Airport (IG) Road, Barzulla, Srinagar - 190005",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 34.0359573,
+    "longitude": 74.8021766,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-074",
+    "name": "Mizoram Rural Bank",
+    "type": "RRB",
+    "state": "Mizoram",
+    "address": "Minco, Aizawl - 796001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.7198598,
+    "longitude": 92.7211202,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-075",
+    "name": "Meghalaya Rural Bank",
+    "type": "RRB",
+    "state": "Meghalaya",
+    "address": "MTC Bhavan, 2nd Floor, Police Bazar, Shillong - 793001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 25.5795063,
+    "longitude": 91.888911,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-076",
+    "name": "Utkal Gramin Bank",
+    "type": "RRB",
+    "state": "Odisha",
+    "address": "Doorsanchar Bhavan, Near New Bus Stand, Bolangir - 767001",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 20.7044181,
+    "longitude": 83.4881357,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-077",
+    "name": "Bangiya Gramin Vikash Bank",
+    "type": "RRB",
+    "state": "West Bengal",
+    "address": "BMC House, NH-34, Chaltiya, Chuanpur, PO Berhampore - 742101",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 24.0934613,
+    "longitude": 88.2583947,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-078",
+    "name": "Uttarbanga Kshetriya Gramin Bank",
+    "type": "RRB",
+    "state": "West Bengal",
+    "address": "Sanit Road, Cooch Behar - 736101",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.3195411,
+    "longitude": 89.4499669,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-079",
+    "name": "Odisha Gramya Bank",
+    "type": "RRB",
+    "state": "Odisha",
+    "address": "AT-Gandamunda, PO-Khandagiri, Jagamara-Sundarpada Road, Bhubaneswar, Dist. Khurda, Odisha - 751030",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 20.2561766,
+    "longitude": 85.7883903,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-080",
+    "name": "Ananya Finance for Inclusive Growth Pvt Ltd",
+    "type": "NBFC-MFI",
+    "state": "Maharashtra",
+    "address": "'Sahyadri Building', Behind Amiteish Hotel, Ambajogai Road, Sai Naka, Latur - 413512",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 18.3949577,
+    "longitude": 76.5702022,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-081",
+    "name": "Grameen Development and Finance Pvt Ltd",
+    "type": "NBFC-MFI",
+    "state": "Assam",
+    "address": "Dabjent, Kundil Road, Chaygaon, Kamrup - 781124",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.0481533,
+    "longitude": 91.3874738,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-082",
+    "name": "ASA International Microfinance Ltd",
+    "type": "NBFC-MFI",
+    "state": "West Bengal",
+    "address": "Victoria Park, 4th Floor, GN-37/2, Sector-V, Salt Lake City, Kolkata - 700091",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 22.5768904,
+    "longitude": 88.4301248,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-083",
+    "name": "Midland Microfin Limited",
+    "type": "NBFC-MFI",
+    "state": "Punjab",
+    "address": "The Exist, Plot No.1, R.B. Badri Dass Colony, BMC Chowk, GT Road, Jalandhar - 144001",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 31.3180883,
+    "longitude": 75.5779202,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-084",
+    "name": "Satin Creditcare Network Limited",
+    "type": "NBFC-MFI",
+    "state": "Haryana",
+    "address": "Plot No.492, Udyog Vihar, Phase-III, Gurugram - 122016",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 28.5088974,
+    "longitude": 77.0750787,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-085",
+    "name": "Pahal Financial Services Pvt Ltd",
+    "type": "NBFC-MFI",
+    "state": "Gujarat",
+    "address": "7th Floor, Binori B Square-2, Ambli-Iscon Road, Ahmedabad - 380054",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.0456841,
+    "longitude": 72.5263141,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-086",
+    "name": "Vector Finance Pvt Ltd",
+    "type": "NBFC-MFI",
+    "state": "Odisha",
+    "address": "K7/110, Ground Floor, Kalinga Vihar, PS Khandagiri, Bhubaneswar - 751029",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 20.2807584,
+    "longitude": 85.7702504,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-087",
+    "name": "Shri Mahila Seva Sahakari Bank Ltd",
+    "type": "Cooperative Society",
+    "state": "Gujarat",
+    "address": "109, Sakar-II, Town Hall Road, Ellisbridge, Ahmedabad - 380006",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.0215677,
+    "longitude": 72.5630043,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-088",
+    "name": "Konkalata Mahila Shahari Sahakari Bank",
+    "type": "Cooperative Society",
+    "state": "Assam",
+    "address": "Assam",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.5123654,
+    "longitude": 93.9715725,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-089",
+    "name": "Streenidhi Telangana",
+    "type": "Cooperative Society",
+    "state": "Telangana",
+    "address": "401 & 402, 4th Floor, My Home Sarovar Plaza, Secretariat Road, Ambedkar Colony, Saifabad, Hyderabad - 500004",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 17.4036318,
+    "longitude": 78.4620369,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-090",
+    "name": "Streenidhi AP",
+    "type": "Cooperative Society",
+    "state": "Andhra Pradesh",
+    "address": "2nd Floor, NTR Administrative Block, RTC Complex, Vijayawada - 520013",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 16.4935833,
+    "longitude": 80.6451592,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-091",
+    "name": "Indian Overseas Bank",
+    "type": "PSB",
+    "state": "Tamil Nadu",
+    "address": "Central Office, 763, Anna Salai, Chennai - 600002",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 13.0334972,
+    "longitude": 80.2545461,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-092",
+    "name": "Bank of Baroda",
+    "type": "PSB",
+    "state": "Gujarat",
+    "address": "Baroda Bhavan, 7th Floor, R.C. Dutt Road, Vadodara - 390007",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 22.3083997,
+    "longitude": 73.1652812,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-093",
+    "name": "Canara Bank",
+    "type": "PSB",
+    "state": "Karnataka",
+    "address": "Head Office, 112, J.C. Road, Bengaluru - 560002",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 12.9627285,
+    "longitude": 77.5806486,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-094",
+    "name": "Punjab National Bank",
+    "type": "PSB",
+    "state": "Delhi",
+    "address": "Plot No.-4, Sector 10, Dwarka, New Delhi - 110075",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 28.5923973,
+    "longitude": 77.0565141,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-095",
+    "name": "Punjab & Sind Bank",
+    "type": "PSB",
+    "state": "Delhi",
+    "address": "Priority Sector Advance Department, 5th Floor, 21 Rajendra Place, New Delhi - 110008",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 28.6433003,
+    "longitude": 77.1609621,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-096",
+    "name": "Union Bank of India",
+    "type": "PSB",
+    "state": "Maharashtra",
+    "address": "Central Office, Union Bank Bhavan, Nariman Point, Mumbai",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 19.054999,
+    "longitude": 72.8692035,
+    "location_precision": "locality"
+  },
+  {
+    "partner_id": "CP-097",
+    "name": "Indian Bank",
+    "type": "PSB",
+    "state": "Tamil Nadu",
+    "address": "Corporate Office, No.254-260, Avvai Shanmugam Salai, Royapettah, Chennai - 600014",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 13.0544208,
+    "longitude": 80.2660834,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-098",
+    "name": "Bank of Maharashtra",
+    "type": "PSB",
+    "state": "Maharashtra",
+    "address": "Head Office 'Lokmangal', 1501, Shivajinagar, Pune - 411005",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 18.4940303,
+    "longitude": 73.8877868,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-099",
+    "name": "Bank of India",
+    "type": "PSB",
+    "state": "Maharashtra",
+    "address": "Bandra Kurla Complex, Bandra (East), Mumbai - 400051",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 19.0606629,
+    "longitude": 72.8546797,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-100",
+    "name": "Central Bank of India",
+    "type": "PSB",
+    "state": "Maharashtra",
+    "address": "Chandermukhi Bldg., Nariman Point, Mumbai - 400021",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 18.927584,
+    "longitude": 72.8247478,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-101",
+    "name": "UCO Bank",
+    "type": "PSB",
+    "state": "West Bengal",
+    "address": "No 3&4, DD Block, Sector-1, Bidhannagar, Kolkata - 700064",
+    "loan_categories": [
+      "term_loan",
+      "education_loan",
+      "micro_finance"
+    ],
+    "eligibility_status": "high_npa_flagged",
+    "latitude": 22.5955985,
+    "longitude": 88.4103473,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-102",
+    "name": "AU Small Finance Bank",
+    "type": "Small Finance Bank",
+    "state": "Rajasthan",
+    "address": "Jaipur, Rajasthan",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.9154576,
+    "longitude": 75.8189817,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-103",
+    "name": "Ujjivan Small Finance Bank",
+    "type": "Small Finance Bank",
+    "state": "Karnataka",
+    "address": "Bengaluru, Karnataka",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 12.9767936,
+    "longitude": 77.590082,
+    "location_precision": "exact"
+  },
+  {
+    "partner_id": "CP-104",
+    "name": "North Eastern Development Finance Corporation Ltd (NEDFi)",
+    "type": "Other Agency",
+    "state": "Assam",
+    "address": "Tea Auction Center, GS Road, Sanket Vihar, Dispur, Guwahati - 781006",
+    "loan_categories": [
+      "micro_finance",
+      "term_loan",
+      "education_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.1464891,
+    "longitude": 91.7894222,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-105",
+    "name": "Jharkhand Silk Textile & Handicraft Development Corporation Ltd (JHARCRAFT)",
+    "type": "Other Agency",
+    "state": "Jharkhand",
+    "address": "DIC Campus, Ratu Road, Ranchi - 834001",
+    "loan_categories": [
+      "micro_finance"
+    ],
+    "eligibility_status": "active",
+    "latitude": 23.3730773,
+    "longitude": 85.3370206,
+    "location_precision": "pincode"
+  },
+  {
+    "partner_id": "CP-106",
+    "name": "Small Industries Development Bank of India (SIDBI)",
+    "type": "Other Agency",
+    "state": "Uttar Pradesh",
+    "address": "SIDBI Tower, 15, Ashok Marg, Lucknow - 226001",
+    "loan_categories": [
+      "term_loan"
+    ],
+    "eligibility_status": "active",
+    "latitude": 26.8621883,
+    "longitude": 80.9113521,
+    "location_precision": "pincode"
+  }
+]
