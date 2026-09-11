@@ -1358,6 +1358,12 @@
       let currentGoogleUser = null;
       let savedCache = {};
 
+      // Guest (not signed in) saved schemes intentionally use sessionStorage:
+      // they're meant to be temporary, scoped to this browser tab, and gone
+      // once the tab closes or the user refreshes in a way that starts a
+      // fresh session. Only a signed-in user's saved schemes are meant to
+      // persist permanently (see /saved routes in app.py, backed by
+      // Vercel KV so it actually survives across requests/devices).
       function getGuestSaved() {
         try {
           return JSON.parse(sessionStorage.getItem(SAVE_KEY) || "{}");
@@ -1512,12 +1518,17 @@
       }
 
       // ===================== WhatsApp Sharing =====================
+      // Site link included in every shared message so whoever receives it
+      // on WhatsApp can tap straight through to YojanaMatch, not just read
+      // text with nothing to click.
+      const SITE_URL = "https://yojanamatch.vercel.app";
+
       function whatsappUrlForScheme(s) {
-        const text = `📋 *${s.scheme_name}*\n${s.short_description ? s.short_description.slice(0, 140) + "..." : ""}\n\n🏛️ Found on YojanaMatch - Discover government schemes you are eligible for!`;
+        const text = `📋 *${s.scheme_name}*\n${s.short_description ? s.short_description.slice(0, 140) + "..." : ""}\n\n🏛️ Found on YojanaMatch - Discover government schemes you are eligible for!\n${SITE_URL}`;
         return `https://wa.me/?text=${encodeURIComponent(text)}`;
       }
       function shareAllResultsUrl(totalCount) {
-        const text = `🎉 I found ${totalCount} government welfare schemes I'm eligible for using YojanaMatch! Check your eligibility too:`;
+        const text = `🎉 I found ${totalCount} government welfare schemes I'm eligible for using YojanaMatch! Check your eligibility too:\n${SITE_URL}`;
         return `https://wa.me/?text=${encodeURIComponent(text)}`;
       }
 

@@ -8,7 +8,14 @@ import sys
 import json
 import math
 import secrets
+import logging
+import traceback
 from flask import Flask, request, jsonify, send_from_directory, session
+
+# Make sure errors actually show up in Vercel's runtime logs (stdout/stderr),
+# instead of just a bare "500 -" with no detail like we were seeing before.
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # --- Google Sign-In (optional: app still runs fine without it, login routes
 # just return a clear error instead of crashing the whole server) ---
@@ -61,6 +68,30 @@ if os.path.exists(LOAN_SCHEMES_PATH):
 
 app = Flask(__name__)
 
+
+@app.errorhandler(Exception)
+def handle_any_uncaught_exception(e):
+    """
+    Safety net: any exception ANYWHERE in the app that wasn't already caught
+    now gets its full traceback printed to the Vercel runtime logs, instead
+    of showing up as just a bare 'POST /whatever 500 -' with no detail
+    (which is what we were seeing for /auth/google before this fix).
+    """
+    logger.error("Unhandled exception on %s %s:\n%s", request.method, request.path, traceback.format_exc())
+    return jsonify({"error": "Internal server error", "detail": str(e)}), 500
+
+
+@app.after_request
+def add_coop_header(response):
+    """
+    Fixes the 'Cross-Origin-Opener-Policy policy would block the
+    window.postMessage call' console warnings that show up during the
+    Google Sign-In popup flow. Harmless on their own, but this quiets them
+    and is the correct header for apps that open OAuth popups.
+    """
+    response.headers.setdefault('Cross-Origin-Opener-Policy', 'same-origin-allow-popups')
+    return response
+
 # Needed for login sessions (the cookie that remembers who's signed in).
 # Set FLASK_SECRET_KEY as a real env var in production - if it's not set,
 # a random one is generated on every restart, which just means everyone
@@ -72,32 +103,115 @@ app.secret_key = os.environ.get('FLASK_SECRET_KEY') or secrets.token_hex(32)
 # paste the same value into GOOGLE_CLIENT_ID near the top of index.html's
 # <script> block.
 GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID', '')
+if not GOOGLE_CLIENT_ID:
+    logger.warning(
+        "GOOGLE_CLIENT_ID is not set as an environment variable on this server. "
+        "Google sign-in will return 500 until this is set in Vercel's "
+        "Project Settings -> Environment Variables (and the app is redeployed)."
+    )
 
-# Where each logged-in user's saved schemes live. Structure:
-# { "<google_sub>": { "<scheme_name>": <full scheme dict>, ... }, ... }
-SAVED_SCHEMES_PATH = os.path.join(BASE_DIR, 'data', 'saved_schemes.json')
+# --- Persistent storage for logged-in users' saved schemes ---
+#
+# Vercel's serverless functions run on a read-only filesystem except /tmp,
+# and /tmp itself is NOT persistent - it can be wiped between requests
+# whenever a cold start happens or a request lands on a different
+# underlying instance. A JSON file on disk therefore cannot reliably keep a
+# signed-in user's saved schemes around, which was the root cause of
+# "I save it, refresh, and it's gone" even while logged in.
+#
+# Fix: use Vercel KV (a managed Redis, free tier available) when it's
+# connected to this project - Vercel auto-injects KV_REST_API_URL and
+# KV_REST_API_TOKEN as environment variables once you attach a KV store
+# from the Vercel dashboard's "Storage" tab. Each user's saved schemes are
+# stored under their own key ("saved:<google_sub>"), so it's one small
+# read/write per request instead of loading everyone's data every time.
+#
+# If those env vars aren't present (e.g. running locally with
+# `python3 app.py`), everything falls back to the old /tmp JSON file so
+# local development keeps working without any extra setup - it just won't
+# survive a real Vercel cold start, exactly as before.
+KV_REST_API_URL = os.environ.get('KV_REST_API_URL')
+KV_REST_API_TOKEN = os.environ.get('KV_REST_API_TOKEN')
+SAVED_SCHEMES_PATH = os.environ.get('SAVED_SCHEMES_PATH') or os.path.join('/tmp', 'saved_schemes.json')
 
-PAGE_SIZE_DEFAULT = 20
-PAGE_SIZE_MAX = 50  # a ceiling per-request so a bad call can't ask for everything at once
+
+def _kv_configured():
+    return bool(KV_REST_API_URL and KV_REST_API_TOKEN)
 
 
-def _load_saved_store():
+def _kv_get_json(key, default):
+    """GET a JSON value from Vercel KV via its REST API. Returns `default` on any miss/error."""
+    import urllib.request
+    import urllib.parse
+    url = f"{KV_REST_API_URL.rstrip('/')}/get/{urllib.parse.quote(key, safe='')}"
+    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {KV_REST_API_TOKEN}"})
+    try:
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            payload = json.loads(resp.read().decode('utf-8'))
+        raw = payload.get('result')
+        return json.loads(raw) if raw else default
+    except Exception:
+        logger.error("Vercel KV GET failed for key %s:\n%s", key, traceback.format_exc())
+        return default
+
+
+def _kv_set_json(key, value):
+    """SET a JSON value in Vercel KV via its REST API. Returns True on success."""
+    import urllib.request
+    import urllib.parse
+    url = f"{KV_REST_API_URL.rstrip('/')}/set/{urllib.parse.quote(key, safe='')}"
+    body = json.dumps(value, ensure_ascii=False).encode('utf-8')
+    req = urllib.request.Request(
+        url, data=body, method='POST',
+        headers={"Authorization": f"Bearer {KV_REST_API_TOKEN}", "Content-Type": "application/json"}
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            resp.read()
+        return True
+    except Exception:
+        logger.error("Vercel KV SET failed for key %s:\n%s", key, traceback.format_exc())
+        return False
+
+
+def _load_file_store():
     if os.path.exists(SAVED_SCHEMES_PATH):
         with open(SAVED_SCHEMES_PATH, encoding='utf-8') as f:
             return json.load(f)
     return {}
 
 
-def _write_saved_store(store):
+def _write_file_store(store):
     os.makedirs(os.path.dirname(SAVED_SCHEMES_PATH), exist_ok=True)
     with open(SAVED_SCHEMES_PATH, 'w', encoding='utf-8') as f:
         json.dump(store, f, ensure_ascii=False, indent=2)
+
+
+def _load_user_saved(user_key):
+    """Returns {scheme_name: scheme_dict, ...} for this signed-in user."""
+    if _kv_configured():
+        return _kv_get_json(f"saved:{user_key}", {})
+    store = _load_file_store()
+    return store.get(user_key, {})
+
+
+def _write_user_saved(user_key, user_saved):
+    if _kv_configured():
+        _kv_set_json(f"saved:{user_key}", user_saved)
+        return
+    store = _load_file_store()
+    store[user_key] = user_saved
+    _write_file_store(store)
 
 
 def _current_user_key():
     """The signed-in user's stable ID (Google's 'sub' claim), or None for guests."""
     user = session.get('user')
     return user['sub'] if user else None
+
+
+PAGE_SIZE_DEFAULT = 20
+PAGE_SIZE_MAX = 50  # a ceiling per-request so a bad call can't ask for everything at once
 
 
 @app.route('/auth/google', methods=['POST'])
@@ -122,8 +236,14 @@ def auth_google():
         info = google_id_token.verify_oauth2_token(
             token, google_auth_requests.Request(), GOOGLE_CLIENT_ID
         )
-    except ValueError:
+    except ValueError as e:
+        logger.warning("Google token verification failed: %s", e)
         return jsonify({"error": "Invalid or expired Google token"}), 401
+    except Exception:
+        # Catch-all so an unexpected error (network issue, library bug, etc.)
+        # still logs a full traceback instead of dying silently.
+        logger.error("Unexpected error verifying Google token:\n%s", traceback.format_exc())
+        return jsonify({"error": "Sign-in failed unexpectedly. Please try again."}), 500
 
     user = {
         "sub": info["sub"],
@@ -153,8 +273,8 @@ def get_saved():
     user_key = _current_user_key()
     if not user_key:
         return jsonify({"error": "Not logged in"}), 401
-    store = _load_saved_store()
-    return jsonify(list(store.get(user_key, {}).values()))
+    user_saved = _load_user_saved(user_key)
+    return jsonify(list(user_saved.values()))
 
 
 @app.route('/saved', methods=['POST'])
@@ -171,8 +291,7 @@ def add_saved():
         return jsonify({"error": "Not logged in"}), 401
 
     body = request.get_json(silent=True) or {}
-    store = _load_saved_store()
-    user_saved = store.setdefault(user_key, {})
+    user_saved = _load_user_saved(user_key)
 
     schemes_to_add = body.get('schemes')
     if schemes_to_add is None and body.get('scheme'):
@@ -183,7 +302,7 @@ def add_saved():
         if name:
             user_saved[name] = s
 
-    _write_saved_store(store)
+    _write_user_saved(user_key, user_saved)
     return jsonify(list(user_saved.values()))
 
 
@@ -192,10 +311,9 @@ def remove_saved(scheme_name):
     user_key = _current_user_key()
     if not user_key:
         return jsonify({"error": "Not logged in"}), 401
-    store = _load_saved_store()
-    user_saved = store.setdefault(user_key, {})
+    user_saved = _load_user_saved(user_key)
     user_saved.pop(scheme_name, None)
-    _write_saved_store(store)
+    _write_user_saved(user_key, user_saved)
     return jsonify(list(user_saved.values()))
 
 @app.route('/')
